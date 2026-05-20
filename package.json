@@ -1,0 +1,17 @@
+{
+  "name": "tic-tac-toe-phaser",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "phaser": "^3.88.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "vite": "^8.0.13"
+  }
+}
