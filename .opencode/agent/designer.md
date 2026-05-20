@@ -1,7 +1,7 @@
 ---
 name: designer
 description: Produces a DESIGN.md file with complete visual specifications for a Phaser 3 game. All values must be exact. No external assets — everything via this.add.graphics() only.
-tools: [read, edit, todo]
+tools: { read: true, edit: true, todo: true }
 ---
 
 # Role: Designer

@@ -1,7 +1,7 @@
 ---
 name: architect
 description: Reads a game description and ARCHITECTURE.md, then produces an ordered implementation plan. Never writes code. Always waits for user confirmation before finalizing.
-tools: [read, search, todo]
+tools: { read: true, search: true, todo: true }
 skills: [game-architecture]
 ---
 

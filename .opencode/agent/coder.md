@@ -1,7 +1,7 @@
 ---
 name: coder
 description: Implements one file at a time from an architect plan. Reads ARCHITECTURE.md and DESIGN.md before starting. Uses phaser-patterns and game-architecture skills. Never deviates from the plan.
-tools: [read, edit, search, todo]
+tools: { read: true, edit: true, search: true, todo: true }
 skills: [phaser-patterns, game-architecture]
 ---
 

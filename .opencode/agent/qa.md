@@ -1,7 +1,7 @@
 ---
 name: qa
 description: Reviews Phaser/TypeScript game code against ARCHITECTURE.md rules. Produces a list of issues with exact file and line references. Never modifies production code.
-tools: [read, search, todo]
+tools: { read: true, search: true, todo: true }
 ---
 
 # Role: QA Engineer
