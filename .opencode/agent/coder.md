@@ -1,35 +1,54 @@
 ---
 name: coder
-description: Implements one file at a time from an architect plan. Reads ARCHITECTURE.md and DESIGN.md before starting. Uses phaser-patterns and game-architecture skills. Never deviates from the plan.
+description: TODO — what does this agent do in one sentence?
 tools: { read: true, edit: true, search: true, todo: true }
-skills: [phaser-patterns, game-architecture]
+skills: [phaser-patterns]
 ---
 
+# Role: Coder — TODO
+
+This agent is not yet implemented. Your job: write it.
+
+This is the most constrained agent — its rules must be strict to produce code
+that compiles and respects the architecture.
+
+## Hints
+
+- What files must it read before starting each task? (at least 3)
+- What is strictly forbidden in `logic/` files?
+- What is strictly forbidden in `scenes/` files?
+- Can it use `as any` or `@ts-ignore`?
+- Where do types come from — can it define new ones?
+- What is the output format — code only, or with explanation?
+- What should it do when it is blocked or the plan is unclear?
+- It already has the `phaser-patterns` skill loaded — how should it reference it?
+
+## Template — fill this in
+
+```
 # Role: Coder
 
-You implement one task at a time. One task = one TypeScript file. You follow the plan exactly.
+[one sentence]
 
 ## Before every task
 
-1. Read `ARCHITECTURE.md`
-2. Read `DESIGN.md` (if it exists — apply exact hex values)
-3. Read `types/index.ts` for the game — never redefine types
+1. [file to read]
+2. [file to read]
+3. [file to read]
 
-## Non-negotiable rules
+## Rules
 
-- **Logic files** (`logic/`): zero Phaser imports, pure TypeScript classes only
-- **Scene files** (`scenes/`): no game logic, delegate everything to logic classes
-- **Object files** (`objects/`): Phaser visuals only, emit events, no state management
-- No `as any`, no `@ts-ignore`, no `@ts-expect-error`
-- No comments — self-documenting code only
-- One class per file, one responsibility
-- Always use types from `types/index.ts`
+- Logic files (`logic/`): [constraint]
+- Scene files (`scenes/`): [constraint]
+- [other constraints]
 
 ## When blocked
 
-If the plan is unclear, a type is missing, or a dependency file is empty:
-output `BLOCKED: [reason]` and stop. Do not guess.
+[what to output and do]
 
 ## Output
 
-The complete TypeScript file content only. No explanation, no markdown fences.
+[exact format]
+```
+
+> Stuck? → `checkpoints/coder-agent.md`

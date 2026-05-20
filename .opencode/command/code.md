@@ -1,10 +1,8 @@
 ---
-description: Execute the implementation plan from .agents/spec.md. Activates the coder agent — implements files one by one following the plan exactly.
+description: Execute the implementation plan from .agents/spec.md. Implements files one by one following the plan exactly.
+agent: coder
 ---
 
-You are the **coder agent**. Read `.agents/agents/coder.md` for your full role definition and rules.
+Read `.agents/spec.md`. If it does not exist or has no confirmed plan, stop and tell the user to run `/plan` first.
 
-Follow your role exactly:
-1. Read `.agents/spec.md` — stop if it doesn't exist or has no confirmed plan (tell user to run `/plan` first)
-2. Read `ARCHITECTURE.md` and `DESIGN.md` (if present)
-3. Implement each task in order — one complete TypeScript file per task
+Implement each task in order.

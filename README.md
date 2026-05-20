@@ -19,31 +19,31 @@ npm run dev   # → http://localhost:3000
 
 ## Configure your CLI
 
-### Option A — opencode
 
 https://opencode.ai/docs/#install
 
 ```bash
 npm install -g opencode-ai
+opencode providers login 
+```
+
+
+select github-copilot` → opens browser → login to GitHub → authorize device
+
+
+Running opencode in your terminal
+```bash
 opencode
 ```
 
-In opencode settings, select a **small model only**:
+Then select a small model:
+In opencode settings (/models), select a **small model only**:
 - `google-vertex/claude-haiku-4-5@20251001`
 - `github-copilot/gpt-5-mini`
 - `github-copilot/gemini-3-flash-preview`
 
 Forbidden: `claude-sonnet`, `claude-opus`, `gpt-4o`, `gemini-pro`
 
-### Option B — GitHub Copilot CLI
-
-https://docs.github.com/fr/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli
-
-```bash
-npm install -g @github/copilot
-```
-
-Set model to `gpt-5-mini` in Copilot settings (VS Code or github.com).
 
 ---
 
@@ -57,13 +57,12 @@ Set model to `gpt-5-mini` in Copilot settings (VS Code or github.com).
 | `/qa <file path>` | Review code for issues (QA) |
 
 **opencode**: commands live in `.opencode/command/`  
-**copilot**: prompts live in `.github/prompts/`
 
 ---
 
 ## Agents
 
-Four roles, each in `.agents/agents/`:
+Four roles, each in `.opencode/agents/`:
 
 | Agent | Role |
 |---|---|
@@ -89,16 +88,11 @@ Two skills in `.agents/skills/`:
 
 ```
 .agents/
-  agents/        ← role definitions (source of truth)
   skills/        ← reusable knowledge injected into agents
-  prompts/       ← slash commands (source of truth)
   spec.md        ← generated plan (gitignored)
 .opencode/
-  agent/         ← mirror of .agents/agents/
-  command/       ← opencode slash commands
-.github/
-  agents/        ← mirror of .agents/agents/
-  prompts/       ← mirror of .agents/prompts/
+ agent/         ← role definitions
+ command/       ← slash commands
 checkpoints/     ← reference implementations (facilitator unlocks)
 src/             ← Phaser project (implement inside games/)
 ARCHITECTURE.md  ← read this first
