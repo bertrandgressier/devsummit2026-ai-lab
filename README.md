@@ -1,8 +1,16 @@
-# AI4Dev Lab — Dev Summit 2026
+![DevSummit 2026](public/assets/images/devsummit.png)
+
+# devsummit2026-ai-lab
+
+**AI4Dev Lab** — Small model. Better context. Better output.
 
 **Stack**: Phaser 3 + TypeScript + Vite  
 **Model constraint**: Small models only — Haiku 3.5, GPT-4o mini, Gemini Flash  
 **CLI**: OpenCode or GitHub Copilot
+
+> Presented by [@bertrandgressier](https://github.com/bertrandgressier) & [@ThomasRumasLM](https://github.com/ThomasRumasLM)
+
+---
 
 > **Which files to fill in?**
 >
@@ -16,8 +24,8 @@
 ## Setup
 
 ```bash
-git clone <repo-url>
-cd ai4dev-lab
+git clone https://github.com/bertrandgressier/devsummit2026-ai-lab.git
+cd devsummit2026-ai-lab
 npm install
 npm run dev   # → http://localhost:3000
 ```
