@@ -3,12 +3,23 @@
 > Small model. Better context. Better output.
 
 **Your stack**: Phaser 3 + TypeScript + Vite  
-**Your tool**: OpenCode — terminal only, no IDE assistant  
-**Rule**: Small models only — `gpt-4o-mini`, `claude-3-5-haiku`, `gemini-1.5-flash`
+**Your tool**: OpenCode or GitHub Copilot CLI   
+**Rule**: Small models only — `gpt-5-mini`, `claude-3-5-haiku`, `gemini-3-fash-preview`
+
+> **Which files to fill in?**
+>
+> | Tool | Agent stubs | Prompt/Command stubs |
+> |---|---|---|
+> | **OpenCode** | `.opencode/agent/*.md` | `.opencode/command/*.md` (already wired) |
+> | **GitHub Copilot** | `.github/agents/*.md` | `.github/prompts/*.prompt.md` |
+>
+> Fill in the files that match your tool. The hints and templates inside are identical.
 
 ---
 
-## Setup — Configure OpenCode (5 min)
+## Setup (5 min)
+
+### Option A — OpenCode
 
 Install OpenCode if needed:
 
@@ -30,9 +41,22 @@ Select a small model:
 /models
 ```
 
-Choose `gpt-4o-mini` (or `claude-3-5-haiku` / `gemini-1.5-flash`).
+Choose `gpt-5-mini` (or `claude-3-5-haiku` / `gemini-3-fash-preview`).
 
-The project already has an `opencode.json` that sets `gpt-4o-mini` as the default — you're ready.
+
+
+### Option B — GitHub Copilot CLI
+
+Run copilot-cli in your terminal:
+
+```bash
+copilot
+```
+
+Select a small model :  
+`gpt-5-mini` · `claude-3-5-haiku` · `gemini-3-fash-preview`
+
+---
 
 Then start the app:
 
@@ -47,7 +71,7 @@ Both are stubs — they compile, they render "implement me!". Your job is to imp
 
 ## Step 1 — Without context (5 min)
 
-Start a new OpenCode session. Ask:
+Start a new session (OpenCode terminal or Copilot Chat). Ask:
 
 > "Build me a Tic Tac Toe game with Phaser 3 and TypeScript"
 
@@ -73,16 +97,21 @@ Compare. The model now knows the folder structure, the types, the rules.
 
 ## Step 3 — Write the architect agent (12 min)
 
-Open `.opencode/agent/architect.md`. It's a stub with hints.
+**OpenCode**: open `.opencode/agent/architect.md`  
+**Copilot**: open `.github/agents/architect.md`
+
+It's a stub with hints.
 
 An agent definition tells a model what role to play: what it does, what it must never do, and what its output looks like.
 
-Ask OpenCode to help you write it:
+Ask your tool to help you write it:
 > "Help me write an architect agent for a Phaser 3 game. It reads ARCHITECTURE.md and produces an ordered implementation plan, one task per file. It never writes code. It asks for confirmation before finishing."
 
-Write the result into `.opencode/agent/architect.md`, keeping the frontmatter.
+Write the result into the file, keeping the frontmatter.
 
 Then test it:
+
+**OpenCode** or **Copilot**:
 ```
 /plan Tic Tac Toe — classic 3x3 grid, player X vs AI opponent
 ```
@@ -97,11 +126,16 @@ Then test it:
 
 ## Step 4 — Write the designer agent (8 min)
 
-Open `.opencode/agent/designer.md`. Use OpenCode to help you write it.
+**OpenCode**: open `.opencode/agent/designer.md`  
+**Copilot**: open `.github/agents/designer.md`
+
+Use your tool to help you write it.
 
 Key constraint to include: no external assets — everything drawn with `this.add.graphics()`.
 
 Test it:
+
+**OpenCode** or **Copilot**:
 ```
 /design Tic Tac Toe — dark futuristic, neon teal and coral
 ```
@@ -131,14 +165,18 @@ directly. A skill that copies the same content wastes context with zero benefit.
 keyboard input, real-time loops — are not in `ARCHITECTURE.md`. The coder gets them injected
 automatically on every task without re-explaining.
 
-Notice the coder stub already declares `skills: [phaser-patterns]` in its frontmatter.  
+**OpenCode**: the coder stub already declares `skills: [phaser-patterns]` in its frontmatter.  
 That's all it takes for OpenCode to inject the skill.
 
+**Copilot**: skills don't exist as a first-class concept. the skill should be loaded automatically. If not, ask it to load the skill with `#phaser-patterns`. 
 ---
 
 ## Step 6 — Write the coder agent (10 min)
 
-Open `.opencode/agent/coder.md`. This is the most constrained agent — strict rules produce correct code.
+**OpenCode**: open `.opencode/agent/coder.md`  
+**Copilot**: open `.github/agents/coder.md`
+
+This is the most constrained agent — strict rules produce correct code.
 
 Include:
 - What files to read before starting (at least 3)
@@ -147,9 +185,12 @@ Include:
 - What to do when blocked
 
 Test it:
+
+**OpenCode** or **Copilot**:
 ```
 /code
 ```
+
 
 Then:
 ```bash
@@ -168,16 +209,22 @@ Facilitators will show the four agent definitions side by side. Grab the checkpo
 
 ## Step 7 — Write the QA agent (7 min)
 
-Open `.opencode/agent/qa.md`. Write a QA agent that:
+**OpenCode**: open `.opencode/agent/qa.md`  
+**Copilot**: open `.github/agents/qa.md`
+
+Write a QA agent that:
 - Reads `ARCHITECTURE.md` to know what rules to enforce
 - Reports violations with exact file path and line number
 - Classifies issues: **Critical** / **Major** / **Minor**
 - Never modifies code
 
 Test it:
+
+**OpenCode** or **Copilot**:
 ```
 /qa src/games/tictactoe/scenes/GameScene.ts
 ```
+
 
 Find at least 2 issues, fix them manually, run `npm run build` again.
 
@@ -202,6 +249,8 @@ Open `http://localhost:3000`. Click "LAUNCH" on Tic Tac Toe. Play against the AI
 Read `checkpoints/snake-architecture.md` — it explains the key difference (real-time tick vs turn-based).
 
 Then run the same loop:
+
+**OpenCode** or **Copilot**:
 ```
 /plan Snake — real-time arcade snake, eat food, avoid walls and yourself
 /code
