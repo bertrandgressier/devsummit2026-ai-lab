@@ -10,6 +10,8 @@
 
 > Presented by [@bertrandgressier](https://github.com/bertrandgressier) & [@ThomasRumasLM](https://github.com/ThomasRumasLM)
 
+### [→ Ouvrir le lab](LAB.md)
+
 ---
 
 > **Which files to fill in?**
