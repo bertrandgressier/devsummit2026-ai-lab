@@ -304,10 +304,10 @@ Once it works, archive the plan before moving on:
 
 **OpenCode** or **Copilot**:
 ```
-/archive tictactoe
+/archive
 ```
 
-This moves `.agents/spec.md` to `.agents/archived/tictactoe.md` so the next game starts with a clean slate.
+This reads the game name from `.agents/spec.md` and moves it to `.agents/archived/` so the next game starts with a clean slate.
 
 ---
 
