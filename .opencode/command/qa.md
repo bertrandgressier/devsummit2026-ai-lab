@@ -1,6 +1,6 @@
 ---
-description: Review TypeScript files against ARCHITECTURE.md rules. Reports Critical/Major/Minor issues with exact line references. Never modifies code.
+description: Review all TypeScript files for a game against ARCHITECTURE.md rules. Reports Critical/Major/Minor issues with exact line references. Never modifies code.
 agent: qa
 ---
 
-Files to review: $ARGUMENTS
+Game to review: $ARGUMENTS

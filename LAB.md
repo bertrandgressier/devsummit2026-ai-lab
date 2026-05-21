@@ -262,19 +262,19 @@ Facilitators will show the four agent definitions side by side. Grab the checkpo
 **OpenCode**: open `.opencode/agent/qa.md`  
 **Copilot**: open `.github/agents/qa.md`
 
-Write a QA agent that:
-- Reads `ARCHITECTURE.md` to know what rules to enforce
-- Reports violations with exact file path and line number
-- Classifies issues: **Critical** / **Major** / **Minor**
-- Never modifies code
+A file-level review misses the big picture. The QA agent should scan the entire game — every file under `src/games/<game>/` — and produce a single consolidated report.
+
+Ask your tool to help you write it:
+> "Update the QA agent definition for a Phaser 3 TypeScript game (`.opencode/agent/qa.md` / `.github/agents/qa.md`). It receives a game name (e.g. `tictactoe`). It reads ARCHITECTURE.md first, then scans every TypeScript file under `src/games/<game>/`. It reports every violation with exact file path and line number. It classifies issues as Critical, Major, or Minor. It never modifies code. Output is a single QA report for the whole game."
+
+Write the result into the file, keeping the frontmatter.
 
 Test it:
 
 **OpenCode** or **Copilot**:
 ```
-/qa src/games/tictactoe/scenes/GameScene.ts
+/qa tictactoe
 ```
-
 
 Find at least 2 issues, fix them manually, run `npm run build` again.
 
@@ -304,7 +304,7 @@ Then run the same loop:
 ```
 /plan Snake — real-time arcade snake, eat food, avoid walls and yourself
 /code
-/qa src/games/snake/scenes/GameScene.ts
+/qa snake
 ```
 
 When done, open the launcher and play Snake.
