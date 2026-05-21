@@ -169,14 +169,24 @@ rm -rf .agents/skills/game-architecture
 keyboard input, real-time loops — are not in `ARCHITECTURE.md`. The coder gets them injected
 automatically on every task without re-explaining.
 
-### OpenCode
+### How skill loading works
 
-The coder stub already declares `skills: [phaser-patterns]` in its frontmatter.  
-That's all it takes for OpenCode to inject the skill.
+Skills are loaded **automatically** — the agent decides based on the skill's description whether it's relevant for the current task. You don't call them manually.
 
-### Copilot
+If a skill isn't loading when you'd expect it to, there are two likely causes:
+- The skill description is too vague or doesn't match the agent's task
+- Too many skills are registered and the model picks the wrong ones
 
-The skill should be loaded automatically. If not, ask it to load the skill with `phaser-patterns`. 
+You *can* force-load a skill, but that's a fallback, not the intended workflow:
+
+**OpenCode**: mention the skill name explicitly in your message, or add it to the agent's frontmatter:
+```yaml
+skills: [phaser-patterns]
+```
+
+**Copilot**: reference it explicitly with `#phaser-patterns` in your message.
+
+**Note with small models**: skill selection is less reliable. Small models sometimes skip relevant skills or load irrelevant ones. If generated code is missing Phaser patterns you'd expect, check whether the skill was injected.
 
 ---
 
