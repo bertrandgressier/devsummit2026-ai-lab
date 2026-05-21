@@ -315,21 +315,26 @@ This reads the game name from `.agents/spec.md` and moves it to `.agents/archive
 
 **Rule: you cannot modify your agents. Reuse them exactly as written.**
 
-Read `checkpoints/snake-architecture.md` — it explains the key difference (real-time tick vs turn-based).
+Snake is fundamentally different from Tic Tac Toe: it's **real-time**, not turn-based. The game ticks at a fixed interval regardless of input. Your architect agent doesn't know this — you need to tell it in the plan prompt, otherwise it will produce a turn-based structure.
 
-Then run the same loop:
+Open `checkpoints/snake-architecture.md` (2 min). It shows the tick loop pattern, the data model, and the file responsibility split. You don't need to copy it — just use it to write a richer `/plan` prompt:
 
 **OpenCode** or **Copilot**:
 ```
-/plan Snake — real-time arcade snake, eat food, avoid walls and yourself
+/plan Snake — real-time arcade snake. Game ticks every 150ms via time.addEvent. SnakeLogic handles tick(), collision, food, score — no Phaser. SnakeRenderer draws snake and food with graphics(). GameScene wires the loop and keyboard input.
+```
+
+Then run the rest of the loop as before:
+
+```
 /code
 /qa snake
+/archive
 ```
 
 When done, open the launcher and play Snake.
 
-**The insight**: the same agents you wrote delivered two completely different games.  
-That's what good context engineering looks like.
+**The insight**: the same agents you wrote delivered two completely different games — because you gave them the right context, not because you changed the rules.
 
 ---
 
