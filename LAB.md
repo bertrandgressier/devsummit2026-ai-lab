@@ -315,18 +315,19 @@ This reads the game name from `.agents/spec.md` and moves it to `.agents/archive
 
 **Rule: you cannot modify your agents. Reuse them exactly as written.**
 
-Snake is fundamentally different from Tic Tac Toe: it's **real-time**, not turn-based. The game ticks at a fixed interval regardless of input. Your architect agent doesn't know this — you need to tell it in the plan prompt, otherwise it will produce a turn-based structure.
+Snake is fundamentally different from Tic Tac Toe: it's real-time, not turn-based. Your architect agent doesn't know this — but you shouldn't have to explain Phaser internals in a plan prompt. The right place for technical context is `ARCHITECTURE.md`, not the prompt.
 
-Open `checkpoints/snake-architecture.md` (2 min). It shows the tick loop pattern, the data model, and the file responsibility split. You don't need to copy it — just use it to write a richer `/plan` prompt:
+**First, update the architecture file** so the agent has the context it needs:
+
+```
+Read checkpoints/snake-architecture.md and append its content to ARCHITECTURE.md under a new section "## Snake — Architecture Notes".
+```
+
+Now run the same loop as before with a simple, business-level prompt:
 
 **OpenCode** or **Copilot**:
 ```
-/plan Snake — real-time arcade snake. Game ticks every 150ms via time.addEvent. SnakeLogic handles tick(), collision, food, score — no Phaser. SnakeRenderer draws snake and food with graphics(). GameScene wires the loop and keyboard input.
-```
-
-Then run the rest of the loop as before:
-
-```
+/plan Snake — real-time arcade snake, eat food, avoid walls and yourself
 /code
 /qa snake
 /archive
@@ -334,7 +335,7 @@ Then run the rest of the loop as before:
 
 When done, open the launcher and play Snake.
 
-**The insight**: the same agents you wrote delivered two completely different games — because you gave them the right context, not because you changed the rules.
+**The insight**: you didn't change your agents, and you didn't write a technical prompt. You put the right context in the right file — and the agents did the rest.
 
 ---
 
