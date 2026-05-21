@@ -126,9 +126,10 @@ Then test it:
 **OpenCode**: open `.opencode/agent/designer.md`  
 **Copilot**: open `.github/agents/designer.md`
 
-Use your tool to help you write it.
+Ask your tool to help you write it. Give it enough context:
+> "I need you to update the designer agent definition for a Phaser 3 TypeScript game. Files are `.opencode/agent/designer.md` for OpenCode or `.github/agents/designer.md` for Copilot. The agent receives a game name and a mood or theme description. It must always read ARCHITECTURE.md first to know the canvas size (800×600). It produces a DESIGN.md file with exact visual specifications: a color palette (hex only — `0xRRGGBB` for Phaser graphics, `#RRGGBB` for text), typography, layout coordinates, animations, and interactive states. No external assets — every element must be drawable with `this.add.graphics()`. Every value must be a number or hex code — no 'approximately' or 'around'. The coder must be able to implement without any design decisions left to make."
 
-Key constraint to include: no external assets — everything drawn with `this.add.graphics()`.
+Write the result into the file, keeping the frontmatter.
 
 Test it:
 
