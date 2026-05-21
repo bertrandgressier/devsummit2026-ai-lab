@@ -159,14 +159,25 @@ A skill should add knowledge that **isn't already in your project files**.
 **Why `game-architecture` would be a bad skill**: the coder agent already reads `ARCHITECTURE.md`
 directly. A skill that copies the same content wastes context with zero benefit.
 
+Open `.agents/skills/game-architecture/SKILL.md` and read it. You'll see it duplicates what's already in `ARCHITECTURE.md`. Delete it:
+
+```bash
+rm -rf .agents/skills/game-architecture
+```
+
 **Why `phaser-patterns` is a good skill**: Phaser code patterns — tweens, scene transitions,
 keyboard input, real-time loops — are not in `ARCHITECTURE.md`. The coder gets them injected
 automatically on every task without re-explaining.
 
-**OpenCode**: the coder stub already declares `skills: [phaser-patterns]` in its frontmatter.  
+### OpenCode
+
+The coder stub already declares `skills: [phaser-patterns]` in its frontmatter.  
 That's all it takes for OpenCode to inject the skill.
 
-**Copilot**: skills don't exist as a first-class concept. the skill should be loaded automatically. If not, ask it to load the skill with `#phaser-patterns`. 
+### Copilot
+
+The skill should be loaded automatically. If not, ask it to load the skill with `phaser-patterns`. 
+
 ---
 
 ## Step 5 — Write the coder agent (10 min)
