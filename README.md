@@ -10,7 +10,7 @@
 
 > Presented by [@bertrandgressier](https://github.com/bertrandgressier) & [@ThomasRumasLM](https://github.com/ThomasRumasLM)
 
-### [→ Ouvrir le lab](LAB.md)
+### [→ Open the lab](LAB.md)
 
 ---
 
