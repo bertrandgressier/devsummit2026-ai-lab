@@ -276,7 +276,17 @@ Test it:
 /qa tictactoe
 ```
 
-Find at least 2 issues, fix them manually, run `npm run build` again.
+Read the report. If there are Critical or Major issues, hand them back to the coder agent:
+
+```
+/code fix the issues reported by QA: [paste the Critical and Major items]
+```
+
+Then run the build to confirm:
+
+```bash
+npm run build
+```
 
 > Stuck? → `checkpoints/qa-agent.md`
 
