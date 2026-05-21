@@ -37,5 +37,3 @@ This agent is not yet implemented. Your job: write it.
 
 [describe: what file to write, what sections it must contain]
 ```
-
-> Stuck? → `checkpoints/designer-agent.md`

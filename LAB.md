@@ -82,30 +82,27 @@ Write down 3 things that don't fit the project.
 
 ---
 
-## Step 2 — With context (5 min)
+## Step 2 — Context first, then a plan (17 min)
 
-Read `ARCHITECTURE.md` (2 minutes, it's short).
+### Why planning matters
 
-Now ask again, but start with:
-> "Read ARCHITECTURE.md. Then build me a Tic Tac Toe game."
+Before writing a single line of code, you need a plan. A plan defines which files to create, in what order, and what each file is responsible for. Without it, the model invents structure — and small models invent more than large ones.
 
-Compare. The model now knows the folder structure, the types, the rules.
+This is why the first agent you write is the **architect**: its only job is to produce a plan. No code. Just a clear, ordered list of tasks the coder can follow.
 
-**Insight**: same model, better context → better output.
+**Insight**: same model, better context → better output. The architect agent automates exactly this: it always reads the right files before responding.
 
----
-
-## Step 3 — Write the architect agent (12 min)
+### Write the architect agent
 
 **OpenCode**: open `.opencode/agent/architect.md`  
 **Copilot**: open `.github/agents/architect.md`
 
-It's a stub with hints.
+It's a stub with hints. Open it and read the objective.
 
-An agent definition tells a model what role to play: what it does, what it must never do, and what its output looks like.
+An agent definition tells a model what role to play, what it must always do, what it must never do, and exactly what its output looks like. Small models need more structure — vague instructions produce vague plans.
 
-Ask your tool to help you write it:
-> "Help me write an architect agent for a Phaser 3 game. It reads ARCHITECTURE.md and produces an ordered implementation plan, one task per file. It never writes code. It asks for confirmation before finishing."
+Ask your tool to help you write it. Give it enough context:
+> "I need you update files for architect agent definition for a Phaser 3 TypeScript game. Files are `.opencode/agent/architect.md` for OpenCode or `.github/agents/architect.md` for Copilot. The agent's objective is to turn a game description into a structured implementation plan that a coder can follow file by file. It must always read ARCHITECTURE.md first to know the folder structure, scene types, and coding rules. It produces a numbered list of tasks, one per file, each with: the file path, what to implement, and which types or interfaces to use. Maximum 8 tasks. It never writes code. At the end of every plan it asks: 'Does this plan look correct? Reply yes to confirm or modify: <what to change>.' When the user replies yes, it saves the plan to .agents/spec.md."
 
 Write the result into the file, keeping the frontmatter.
 
@@ -124,7 +121,7 @@ Then test it:
 
 ---
 
-## Step 4 — Write the designer agent (8 min)
+## Step 3 — Write the designer agent (8 min)
 
 **OpenCode**: open `.opencode/agent/designer.md`  
 **Copilot**: open `.github/agents/designer.md`
@@ -146,7 +143,7 @@ Open `DESIGN.md`. Every value must be exact — the coder will use them directly
 
 ---
 
-## Step 5 — Skill vs agent: understand the difference (8 min)
+## Step 4 — Skill vs agent: understand the difference (8 min)
 
 Before writing the coder agent, look at `.agents/skills/phaser-patterns/SKILL.md`.  
 It's pre-filled. Read it — 2 minutes.
@@ -171,7 +168,7 @@ That's all it takes for OpenCode to inject the skill.
 **Copilot**: skills don't exist as a first-class concept. the skill should be loaded automatically. If not, ask it to load the skill with `#phaser-patterns`. 
 ---
 
-## Step 6 — Write the coder agent (10 min)
+## Step 5 — Write the coder agent (10 min)
 
 **OpenCode**: open `.opencode/agent/coder.md`  
 **Copilot**: open `.github/agents/coder.md`
@@ -207,7 +204,7 @@ Facilitators will show the four agent definitions side by side. Grab the checkpo
 
 ---
 
-## Step 7 — Write the QA agent (7 min)
+## Step 6 — Write the QA agent (7 min)
 
 **OpenCode**: open `.opencode/agent/qa.md`  
 **Copilot**: open `.github/agents/qa.md`
@@ -232,7 +229,7 @@ Find at least 2 issues, fix them manually, run `npm run build` again.
 
 ---
 
-## Step 8 — Run it (3 min)
+## Step 7 — Run it (3 min)
 
 ```bash
 npm run dev
@@ -242,7 +239,7 @@ Open `http://localhost:3000`. Click "LAUNCH" on Tic Tac Toe. Play against the AI
 
 ---
 
-## Step 9 — Snake (25 min)
+## Step 8 — Snake (25 min)
 
 **Rule: you cannot modify your agents. Reuse them exactly as written.**
 

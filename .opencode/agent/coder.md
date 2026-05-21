@@ -51,4 +51,3 @@ that compiles and respects the architecture.
 [exact format]
 ```
 
-> Stuck? → `checkpoints/coder-agent.md`

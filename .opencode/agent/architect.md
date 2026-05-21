@@ -45,4 +45,3 @@ and exactly what its output looks like.
 [what does it output before stopping?]
 ```
 
-> Stuck? → `checkpoints/plan-agent.md`

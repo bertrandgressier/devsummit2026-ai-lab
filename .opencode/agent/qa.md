@@ -47,4 +47,3 @@ This agent is not yet implemented. Your job: write it.
 [exact format — severity levels, how to reference each issue, verdict]
 ```
 
-> Stuck? → `checkpoints/qa-agent.md`
