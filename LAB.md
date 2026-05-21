@@ -198,7 +198,7 @@ skills: [phaser-patterns]
 This is the most constrained agent — strict rules produce correct code.
 
 Ask your tool to help you write it. Give it enough context:
-> "I need you to update the coder agent definition for a Phaser 3 TypeScript game. Files are `.opencode/agent/coder.md` for OpenCode or `.github/agents/coder.md` for Copilot. The agent receives one atomic task at a time (one file to implement). Before every task it must read: ARCHITECTURE.md, DESIGN.md, and .agents/spec.md. Rules: logic files in `logic/` must have zero Phaser imports — pure TypeScript only; scene files in `scenes/` must contain no game logic — delegate everything to logic classes; never use `as any`, `@ts-ignore`, or redefine types that already exist in `types/index.ts`. Output is the complete TypeScript file only — no explanation, no markdown fences. When blocked or the plan is unclear, it must stop and output: 'BLOCKED: <reason> — clarify before continuing'."
+> "Update the coder agent for a Phaser 3 TypeScript game (`.opencode/agent/coder.md` / `.github/agents/coder.md`). It reads ARCHITECTURE.md, DESIGN.md, and .agents/spec.md before every task, then implements one file at a time. Output is the complete TypeScript file only — no explanation. When blocked, it stops and outputs: 'BLOCKED: <reason>'."
 
 Write the result into the file, keeping the frontmatter.
 
