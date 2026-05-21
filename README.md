@@ -5,7 +5,7 @@
 **AI4Dev Lab** — Small model. Better context. Better output.
 
 **Stack**: Phaser 3 + TypeScript + Vite  
-**Model constraint**: Small models only — Haiku 3.5, GPT-4o mini, Gemini Flash  
+**Model constraint**: Small models only — `gpt-5-mini`, `claude-3-5-haiku`, `gemini-3-flash-preview`  
 **CLI**: OpenCode or GitHub Copilot
 
 > Presented by [@bertrandgressier](https://github.com/bertrandgressier) & [@ThomasRumasLM](https://github.com/ThomasRumasLM)
@@ -78,7 +78,7 @@ Prompts: run via the Copilot Chat prompt runner or `/` prefix.
 | `/plan <game description>` | `plan.prompt.md` | Generate an implementation plan (architect) |
 | `/design <game + mood>` | `design.prompt.md` | Generate visual specs (designer) |
 | `/code` | `code.prompt.md` | Implement the plan file by file (coder) |
-| `/qa <file path>` | `qa.prompt.md` | Review code for issues (QA) |
+| `/qa <game name>` | `qa.prompt.md` | Review all game files for issues (QA) |
 
 **OpenCode**: commands live in `.opencode/command/`  
 **Copilot**: prompts live in `.github/prompts/`
@@ -100,11 +100,10 @@ Four roles — fill in the stub that matches your tool:
 
 ## Skills
 
-Two skills in `.agents/skills/`:
+One skill in `.agents/skills/`:
 
 | Skill | What it provides |
 |---|---|
-| `game-architecture` | Project structure, rules, types, scene contracts |
 | `phaser-patterns` | Phaser 3 code patterns (interactive objects, tweens, transitions...) |
 
 **OpenCode**: skills are declared in agent frontmatter (`skills: [phaser-patterns]`).  
@@ -126,7 +125,8 @@ Two skills in `.agents/skills/`:
   prompts/       ← Copilot reusable prompts
 checkpoints/     ← reference implementations (facilitator unlocks)
 src/             ← Phaser project (implement inside games/)
-ARCHITECTURE.md  ← read this first
+AGENTS.md        ← auto-loaded by every agent, maps key project files
+ARCHITECTURE.md  ← folder structure, mandatory rules, scene types
 LAB.md           ← step-by-step lab guide
 ```
 
