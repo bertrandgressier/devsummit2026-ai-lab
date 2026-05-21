@@ -236,6 +236,17 @@ Then:
 npm run build   # must pass with zero TypeScript errors
 ```
 
+If the build fails, you can ask the agent to fix it:
+```
+/code fix the TypeScript errors from npm run build
+```
+
+But a better approach: update your coder agent definition to always run the build before finishing. Add this to its rules:
+
+> Always run `npm run build` at the end of every task. If it fails, fix the errors and run it again before stopping.
+
+This way, the agent self-corrects without you having to ask.
+
 > Stuck? → `checkpoints/coder-agent.md`
 
 ---
