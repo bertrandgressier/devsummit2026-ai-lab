@@ -190,7 +190,22 @@ skills: [phaser-patterns]
 
 ---
 
-## Step 5 — Write the coder agent (10 min)
+## Step 5 — Write AGENTS.md (5 min)
+
+`AGENTS.md` is automatically loaded by every agent at the start of each conversation. It's the one file that's always in context — no matter which agent runs.
+
+That makes it valuable, but also dangerous if misused. The rule is: **keep it minimal and non-redundant**.
+
+It should not repeat what's already in `ARCHITECTURE.md`, `DESIGN.md`, or any other file. Instead it should act as a **map**: short descriptions of what each key file contains, so the agent knows what to read depending on the task.
+
+Ask your tool to create it:
+> "Create an AGENTS.md file at the project root for a Phaser 3 TypeScript game. It must be minimal — no rules, no code, no content that duplicates existing files. It lists the key project files with one-line descriptions: what each file contains and when an agent should read it. Files to reference: ARCHITECTURE.md, DESIGN.md, .agents/spec.md, src/games/tictactoe/types/index.ts, src/games/snake/types/index.ts."
+
+Open the file once created. Ask yourself: does every line help an agent decide what to read? If something is already in `ARCHITECTURE.md`, delete it.
+
+---
+
+## Step 6 — Write the coder agent (10 min)
 
 **OpenCode**: open `.opencode/agent/coder.md`  
 **Copilot**: open `.github/agents/coder.md`
@@ -231,7 +246,7 @@ Facilitators will show the four agent definitions side by side. Grab the checkpo
 
 ---
 
-## Step 6 — Write the QA agent (7 min)
+## Step 7 — Write the QA agent (7 min)
 
 **OpenCode**: open `.opencode/agent/qa.md`  
 **Copilot**: open `.github/agents/qa.md`
@@ -256,7 +271,7 @@ Find at least 2 issues, fix them manually, run `npm run build` again.
 
 ---
 
-## Step 7 — Run it (3 min)
+## Step 8 — Run it (3 min)
 
 ```bash
 npm run dev
@@ -266,7 +281,7 @@ Open `http://localhost:3000`. Click "LAUNCH" on Tic Tac Toe. Play against the AI
 
 ---
 
-## Step 8 — Snake (25 min)
+## Step 9 — Snake (25 min)
 
 **Rule: you cannot modify your agents. Reuse them exactly as written.**
 
