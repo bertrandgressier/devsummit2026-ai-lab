@@ -79,6 +79,7 @@ Prompts: run via the Copilot Chat prompt runner or `/` prefix.
 | `/design <game + mood>` | `design.prompt.md` | Generate visual specs (designer) |
 | `/code` | `code.prompt.md` | Implement the plan file by file (coder) |
 | `/qa <game name>` | `qa.prompt.md` | Review all game files for issues (QA) |
+| `/archive <name>` | `archive.prompt.md` | Archive the current spec before the next game |
 
 **OpenCode**: commands live in `.opencode/command/`  
 **Copilot**: prompts live in `.github/prompts/`

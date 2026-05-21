@@ -300,6 +300,15 @@ npm run dev
 
 Open `http://localhost:3000`. Click "LAUNCH" on Tic Tac Toe. Play against the AI.
 
+Once it works, archive the plan before moving on:
+
+**OpenCode** or **Copilot**:
+```
+/archive tictactoe
+```
+
+This moves `.agents/spec.md` to `.agents/archived/tictactoe.md` so the next game starts with a clean slate.
+
 ---
 
 ## Step 9 — Snake (25 min)
