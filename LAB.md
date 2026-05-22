@@ -344,6 +344,8 @@ When done, open the launcher and play Snake.
 
 ## Bonus — Orchestrator agent (OpenCode only)
 
+Facilitators will show a working Snake. Catch up if needed.
+
 > Only if you have time. This is an advanced OpenCode feature.
 
 So far you've been invoking each agent manually, one step at a time. OpenCode supports a different model: a **primary agent** that coordinates **subagents** automatically. You write the game description once — the orchestrator plans, designs, codes, reviews, and archives without you driving each step.
@@ -377,12 +379,6 @@ Ask your tool to do it all in one shot:
 ```
 
 Watch the subagents fire in sequence. Use **Leader+Down** to navigate into a child session and see what a subagent is doing, then **Up** to return to the orchestrator.
-
----
-
-
-
-Facilitators will show a working Snake. Catch up if needed.
 
 ---
 
