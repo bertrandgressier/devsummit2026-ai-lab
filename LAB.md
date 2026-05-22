@@ -133,7 +133,7 @@ Then test it:
 - If something is wrong, reply: `modify: <what to change>`
 - When satisfied, reply: `yes` — the plan is saved to `.agents/spec.md`
 
-> Stuck? → `checkpoints/plan-agent.md`
+> Stuck? → [checkpoints/plan-agent.md](checkpoints/plan-agent.md)
 
 ---
 
@@ -158,7 +158,7 @@ Test it:
 
 Open `DESIGN.md`. Every value must be exact — the coder will use them directly.
 
-> Stuck? → `checkpoints/designer-agent.md`
+> Stuck? → [checkpoints/designer-agent.md](checkpoints/designer-agent.md)
 
 ---
 
@@ -267,7 +267,7 @@ But a better approach: update your coder agent definition to always run the buil
 
 This way, the agent self-corrects without you having to ask.
 
-> Stuck? → `checkpoints/coder-agent.md`
+> Stuck? → [checkpoints/coder-agent.md](checkpoints/coder-agent.md)
 
 ---
 
@@ -305,7 +305,7 @@ Then run the build to confirm:
 npm run build
 ```
 
-> Stuck? → `checkpoints/qa-agent.md`
+> Stuck? → [checkpoints/qa-agent.md](checkpoints/qa-agent.md)
 
 ---
 
@@ -394,7 +394,7 @@ Ask your tool to do it all in one shot:
 
 Watch the subagents fire in sequence. Use **Leader+Down** to navigate into a child session and see what a subagent is doing, then **Up** to return to the orchestrator.
 
-> Stuck? → `checkpoints/orchestrator-agent.md`
+> Stuck? → [checkpoints/orchestrator-agent.md](checkpoints/orchestrator-agent.md)
 
 ---
 
