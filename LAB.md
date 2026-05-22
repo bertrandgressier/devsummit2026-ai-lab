@@ -389,7 +389,7 @@ Ask your tool to do it all in one shot:
 ### Test it
 
 ```
-@orchestrator build Tetris — falling blocks, rotate and place, clear full rows
+@orchestrator build Tetris — falling blocks, one piece falls at a time, player moves and rotates it with arrow keys, full rows disappear and score increases, game over when blocks reach the top. Add it to the launcher so it appears alongside Tic Tac Toe and Snake.
 ```
 
 Watch the subagents fire in sequence. Use **Leader+Down** to navigate into a child session and see what a subagent is doing, then **Up** to return to the orchestrator.
