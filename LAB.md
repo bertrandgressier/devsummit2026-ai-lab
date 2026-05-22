@@ -106,6 +106,8 @@ Ask your tool to help you write it. Give it enough context:
 
 Write the result into the file, keeping the frontmatter.
 
+> **OpenCode**: restart to reload the agent before testing.
+
 Then test it:
 
 **OpenCode** or **Copilot**:
@@ -130,6 +132,8 @@ Ask your tool to help you write it. Give it enough context:
 > "I need you to update the designer agent definition for a Phaser 3 TypeScript game. Files are `.opencode/agent/designer.md` for OpenCode or `.github/agents/designer.md` for Copilot. The agent receives a game name and a mood or theme description. It must always read ARCHITECTURE.md first to know the canvas size (800×600). It produces a DESIGN.md file with exact visual specifications: a color palette (hex only — `0xRRGGBB` for Phaser graphics, `#RRGGBB` for text), typography, layout coordinates, animations, and interactive states. No external assets — every element must be drawable with `this.add.graphics()`. Every value must be a number or hex code — no 'approximately' or 'around'. The coder must be able to implement without any design decisions left to make."
 
 Write the result into the file, keeping the frontmatter.
+
+> **OpenCode**: restart to reload the agent before testing.
 
 Test it:
 
@@ -217,6 +221,8 @@ Ask your tool to help you write it. Give it enough context:
 
 Write the result into the file, keeping the frontmatter.
 
+> **OpenCode**: restart to reload the agent before testing.
+
 Include:
 - What files to read before starting (at least 3)
 - What is forbidden in `logic/` files
@@ -269,12 +275,9 @@ Ask your tool to help you write it:
 
 Write the result into the file, keeping the frontmatter.
 
-Test it:
+> **OpenCode**: restart to reload the agent before testing.
 
-**OpenCode** or **Copilot**:
-```
-/qa tictactoe
-```
+Test it:
 
 Read the report. If there are Critical or Major issues, hand them back to the coder agent:
 
@@ -364,6 +367,8 @@ See the official docs: https://opencode.ai/docs/agents/#subagents
 Ask your tool to do it all in one shot:
 
 > "Update `.opencode/agent/architect.md`, `designer.md`, `coder.md`, and `qa.md` to add `mode: subagent` to their frontmatter. Then create `.opencode/agent/orchestrator.md` as a primary agent (`mode: primary`). It receives a game description. It runs the full pipeline in order: architect to produce a plan and wait for user confirmation, then designer for visual specs, then coder for each task in the plan one by one, then QA to review the full game, then archive. It never writes code itself — it only delegates."
+
+> **Restart OpenCode** to reload all modified agents before testing.
 
 ### Test it
 
