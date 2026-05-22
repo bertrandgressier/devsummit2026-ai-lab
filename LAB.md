@@ -403,7 +403,7 @@ Watch the subagents fire in sequence. Use **Leader+Down** to navigate into a chi
 1. Why did the same model produce better output when you added `ARCHITECTURE.md`?
 2. What is the difference between a **skill** and an **agent**? Give a concrete example from this lab.
 3. Why would a `game-architecture` skill be useless here? What makes `phaser-patterns` useful?
-4. Your QA agent found issues — what one rule would make it find *more* issues automatically?
+4. The QA agent currently only reads files. What tool access would make it more efficient — and what could it catch automatically that it misses today?
 5. What would you do differently on your next project?
 
 ---
