@@ -355,7 +355,7 @@ So far you've been invoking each agent manually, one step at a time. OpenCode su
 
 Your 4 agents (architect, designer, coder, qa) are currently untyped — they behave like primary agents. To use them as subagents, you add one line to their frontmatter: `mode: subagent`.
 
-A key benefit: each subagent can run on a **different model**. Architect and designer work well on a fast cheap model. Coder benefits from a more capable one. You set this once in the agent file — the orchestrator handles the rest.
+A key benefit: each subagent can run on a **different model**. Architect and designer benefit from a more capable model — producing a solid plan and precise design spec requires reasoning. Coder and QA can run on a faster, cheaper model — they follow a clear spec file by file, which is a simpler task. (Though for complex games, a capable coder still helps.)
 
 See the official docs: https://opencode.ai/docs/agents/#subagents
 
