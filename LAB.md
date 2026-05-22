@@ -2,6 +2,20 @@
 
 > Small model. Better context. Better output.
 
+| | Step | Duration |
+|---|---|---|
+| | [Setup](#setup-5-min) | 5 min |
+| 1 | [Without context](#step-1--without-context-5-min) | 5 min |
+| 2 | [Context first, then a plan](#step-2--context-first-then-a-plan-17-min) | 17 min |
+| 3 | [Write the designer agent](#step-3--write-the-designer-agent-8-min) | 8 min |
+| 4 | [Skill vs agent](#step-4--skill-vs-agent-understand-the-difference-8-min) | 8 min |
+| 5 | [Write AGENTS.md](#step-5--write-agentsmd-5-min) | 5 min |
+| 6 | [Write the coder agent](#step-6--write-the-coder-agent-10-min) | 10 min |
+| 7 | [Write the QA agent](#step-7--write-the-qa-agent-7-min) | 7 min |
+| 8 | [Run it](#step-8--run-it-3-min) | 3 min |
+| 9 | [Snake](#step-9--snake-25-min) | 25 min |
+| ★ | [Bonus — Orchestrator agent](#bonus--orchestrator-agent-opencode-only) | if time |
+
 **Your stack**: Phaser 3 + TypeScript + Vite  
 **Your tool**: OpenCode or GitHub Copilot CLI   
 **Rule**: Small models only — `gpt-5-mini`, `claude-3-5-haiku`, `gemini-3-fash-preview`
