@@ -404,7 +404,8 @@ Watch the subagents fire in sequence. Use **Leader+Down** to navigate into a chi
 2. What is the difference between a **skill** and an **agent**? Give a concrete example from this lab.
 3. Why would a `game-architecture` skill be useless here? What makes `phaser-patterns` useful?
 4. The QA agent currently only reads files. What tool access would make it more efficient — and what could it catch automatically that it misses today?
-5. What would you do differently on your next project?
+5. The plan lives in `.agents/spec.md`. In a real project, where else could it live — and what would change if it was stored in your ticketing system (Jira, GitHub Issues...)?
+6. What would you do differently on your next project?
 
 ---
 
