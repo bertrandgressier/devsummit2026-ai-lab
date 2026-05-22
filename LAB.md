@@ -339,7 +339,43 @@ When done, open the launcher and play Snake.
 
 ---
 
-## Checkpoint sync #2 — ~80 min in
+## Bonus — Orchestrator agent (OpenCode only)
+
+> Only if you have time. This is an advanced OpenCode feature.
+
+So far you've been invoking each agent manually, one step at a time. OpenCode supports a different model: a **primary agent** that coordinates **subagents** automatically. You write the game description once — the orchestrator plans, designs, codes, reviews, and archives without you driving each step.
+
+### Primary agents vs subagents
+
+| | Primary agent | Subagent |
+|---|---|---|
+| **Invoked by** | You, directly | A primary agent (or via `@mention`) |
+| **Model** | Your selected model | Can have its own dedicated model |
+| **Use** | Drives the conversation | Executes a specific task |
+
+Your 4 agents (architect, designer, coder, qa) are currently untyped — they behave like primary agents. To use them as subagents, you add one line to their frontmatter: `mode: subagent`.
+
+A key benefit: each subagent can run on a **different model**. Architect and designer work well on a fast cheap model. Coder benefits from a more capable one. You set this once in the agent file — the orchestrator handles the rest.
+
+See the official docs: https://opencode.ai/docs/agents/#subagents
+
+### Convert and create
+
+Ask your tool to do it all in one shot:
+
+> "Update `.opencode/agent/architect.md`, `designer.md`, `coder.md`, and `qa.md` to add `mode: subagent` to their frontmatter. Then create `.opencode/agent/orchestrator.md` as a primary agent (`mode: primary`). It receives a game description. It runs the full pipeline in order: architect to produce a plan and wait for user confirmation, then designer for visual specs, then coder for each task in the plan one by one, then QA to review the full game, then archive. It never writes code itself — it only delegates."
+
+### Test it
+
+```
+@orchestrator build Tetris — falling blocks, rotate and place, clear full rows
+```
+
+Watch the subagents fire in sequence. Use **Leader+Down** to navigate into a child session and see what a subagent is doing, then **Up** to return to the orchestrator.
+
+---
+
+
 
 Facilitators will show a working Snake. Catch up if needed.
 
