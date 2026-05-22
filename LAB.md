@@ -394,6 +394,8 @@ Ask your tool to do it all in one shot:
 
 Watch the subagents fire in sequence. Use **Leader+Down** to navigate into a child session and see what a subagent is doing, then **Up** to return to the orchestrator.
 
+> Stuck? → `checkpoints/orchestrator-agent.md`
+
 ---
 
 ## Wrap-up questions (5 min)
@@ -414,5 +416,6 @@ Watch the subagents fire in sequence. Use **Leader+Down** to navigate into a chi
 | `checkpoints/designer-agent.md` | Working designer agent definition |
 | `checkpoints/coder-agent.md` | Working coder agent definition |
 | `checkpoints/qa-agent.md` | Working QA agent definition |
+| `checkpoints/orchestrator-agent.md` | Working orchestrator agent definition (bonus) |
 | `checkpoints/ttt-gamelogic.ts` | Working GameLogic implementation |
 | `checkpoints/snake-architecture.md` | Snake-specific architecture notes |
