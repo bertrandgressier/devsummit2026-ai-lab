@@ -328,6 +328,12 @@ This way, the agent self-corrects without you having to ask.
 
 ---
 
+## Checkpoint sync #1 — ~45 min in
+
+Facilitators will show the four agent definitions side by side. Grab the checkpoint you need if you're behind.
+
+---
+
 ## Step 7 — Write the QA agent (7 min)
 
 **OpenCode**: open `.opencode/agent/qa.md`  
@@ -414,12 +420,6 @@ Once it works, archive the plan before moving on:
 ```
 
 This reads the game name from `.agents/spec.md` and moves it to `.agents/archived/` so the next game starts with a clean slate.
-
----
-
-## Checkpoint sync #1 — ~60 min in
-
-Facilitators will show the four agent definitions side by side. Grab the checkpoint you need if you're behind.
 
 ---
 

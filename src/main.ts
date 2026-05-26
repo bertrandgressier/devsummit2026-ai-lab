@@ -5,9 +5,6 @@ import { TicTacToeMenuScene } from './games/tictactoe/scenes/MenuScene';
 import { TicTacToeGameScene } from './games/tictactoe/scenes/GameScene';
 import { TicTacToeGameOverScene } from './games/tictactoe/scenes/GameOverScene';
 import { SnakeGameScene } from './games/snake/scenes/GameScene';
-import TetrisMenu from './games/tetris/scenes/MenuScene';
-import TetrisGame from './games/tetris/scenes/GameScene';
-import TetrisGameOver from './games/tetris/scenes/GameOverScene';
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
@@ -25,9 +22,6 @@ const config: Phaser.Types.Core.GameConfig = {
     TicTacToeGameScene,
     TicTacToeGameOverScene,
     SnakeGameScene,
-    TetrisMenu,
-    TetrisGame,
-    TetrisGameOver,
   ],
 };
 

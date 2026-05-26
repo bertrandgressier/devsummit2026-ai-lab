@@ -1,7 +1,6 @@
 const HASH_TO_SCENE: Record<string, string> = {
   launcher: 'Launcher',
   tictactoe: 'TicTacToeMenu',
-  tetris: 'TetrisMenu',
   snake: 'SnakeGame',
 };
 
