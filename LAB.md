@@ -70,6 +70,8 @@ copilot
 Select a small model :  
 `gpt-5-mini` · `claude-3-5-haiku` · `gemini-3-fash-preview`
 
+> **Note for CLI users**: Slash commands (like `/plan`, `/code`) work directly in OpenCode and the VSCode Chat. In the **Copilot CLI**, you must use the `/agents` command to select your custom agent first, then type your request.
+
 ---
 
 ### Option C — GitHub Copilot inside VSCode
@@ -133,7 +135,18 @@ Write the result into the file, keeping the frontmatter.
 
 Then test it:
 
-**OpenCode** or **Copilot**:
+**OpenCode**:
+```
+/plan Tic Tac Toe — classic 3x3 grid, player X vs AI opponent
+```
+
+**Copilot CLI**:
+```
+/agents  # Select "architect" from the list
+Tic Tac Toe — classic 3x3 grid, player X vs AI opponent
+```
+
+**Copilot VSCode**:
 ```
 /plan Tic Tac Toe — classic 3x3 grid, player X vs AI opponent
 ```
@@ -160,7 +173,18 @@ Write the result into the file, keeping the frontmatter.
 
 Test it:
 
-**OpenCode** or **Copilot**:
+**OpenCode**:
+```
+/design Tic Tac Toe — dark futuristic, neon teal and coral
+```
+
+**Copilot CLI**:
+```
+/agents  # Select "designer"
+Tic Tac Toe — dark futuristic, neon teal and coral
+```
+
+**Copilot VSCode**:
 ```
 /design Tic Tac Toe — dark futuristic, neon teal and coral
 ```
@@ -254,7 +278,18 @@ Include:
 
 Test it:
 
-**OpenCode** or **Copilot**:
+**OpenCode**:
+```
+/code
+```
+
+**Copilot CLI**:
+```
+/agents  # Select "coder"
+Run next task
+```
+
+**Copilot VSCode**:
 ```
 /code
 ```
@@ -266,6 +301,19 @@ npm run build   # must pass with zero TypeScript errors
 ```
 
 If the build fails, you can ask the agent to fix it:
+
+**OpenCode**:
+```
+/code fix the TypeScript errors from npm run build
+```
+
+**Copilot CLI**:
+```
+/agents  # Select "coder"
+fix the TypeScript errors from npm run build
+```
+
+**Copilot VSCode**:
 ```
 /code fix the TypeScript errors from npm run build
 ```
@@ -296,8 +344,36 @@ Write the result into the file, keeping the frontmatter.
 
 Test it:
 
-Read the report. If there are Critical or Major issues, hand them back to the coder agent:
+**OpenCode**:
+```
+/qa tictactoe
+```
 
+**Copilot CLI**:
+```
+/agents  # Select "qa"
+tictactoe
+```
+
+**Copilot VSCode**:
+```
+/qa tictactoe
+```
+
+Read the report. If there are Critical or Major issues, hand them back to the coder agent. (Reminder: in Copilot CLI, use `/agents` to switch back to the coder).
+
+**OpenCode**:
+```
+/code fix the issues reported by QA: [paste the Critical and Major items]
+```
+
+**Copilot CLI**:
+```
+/agents  # Select "coder"
+fix the issues reported by QA: [paste the Critical and Major items]
+```
+
+**Copilot VSCode**:
 ```
 /code fix the issues reported by QA: [paste the Critical and Major items]
 ```
@@ -322,7 +398,17 @@ Open `http://localhost:3000`. Click "LAUNCH" on Tic Tac Toe. Play against the AI
 
 Once it works, archive the plan before moving on:
 
-**OpenCode** or **Copilot**:
+**OpenCode**:
+```
+/archive
+```
+
+**Copilot CLI**:
+```
+/agents  # Select "archive" (if available) or move .agents/spec.md manually
+```
+
+**Copilot VSCode**:
 ```
 /archive
 ```
@@ -351,7 +437,23 @@ Read checkpoints/snake-architecture.md and append its content to ARCHITECTURE.md
 
 Now run the same loop as before with a simple, business-level prompt:
 
-**OpenCode** or **Copilot**:
+**OpenCode**:
+```
+/plan Snake — real-time arcade snake, eat food, avoid walls and yourself
+/code
+/qa snake
+/archive
+```
+
+**Copilot CLI**:
+```
+/agents  # Select "architect" -> "Snake — real-time arcade snake..."
+/agents  # Select "coder" -> "Run next task" (repeat as needed)
+/agents  # Select "qa" -> "snake"
+/agents  # Select "archive"
+```
+
+**Copilot VSCode**:
 ```
 /plan Snake — real-time arcade snake, eat food, avoid walls and yourself
 /code
