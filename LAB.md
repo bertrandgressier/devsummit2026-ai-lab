@@ -72,6 +72,15 @@ Select a small model :
 
 ---
 
+### Option C — GitHub Copilot inside VSCode
+
+For those who prefer not to use the command line, the lab can also be completed with GitHub Copilot directly in VSCode.
+
+Select a small model :  
+`gpt-5-mini` · `claude-3-5-haiku` · `gemini-3-fash-preview`
+
+---
+
 Then start the app:
 
 ```bash
