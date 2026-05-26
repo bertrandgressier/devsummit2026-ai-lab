@@ -142,7 +142,7 @@ Then test it:
 - If something is wrong, reply: `modify: <what to change>`
 - When satisfied, reply: `yes` — the plan is saved to `.agents/spec.md`
 
-> Stuck? → [checkpoints/plan-agent.md](checkpoints/plan-agent.md)
+> Stuck? → [checkpoints/architect-agent.md](checkpoints/architect-agent.md)
 
 ---
 
@@ -422,7 +422,7 @@ Watch the subagents fire in sequence. Use **Leader+Down** to navigate into a chi
 
 | File | What's inside |
 |---|---|
-| `checkpoints/plan-agent.md` | Working architect agent definition |
+| `checkpoints/architect-agent.md` | Working architect agent definition |
 | `checkpoints/designer-agent.md` | Working designer agent definition |
 | `checkpoints/coder-agent.md` | Working coder agent definition |
 | `checkpoints/qa-agent.md` | Working QA agent definition |
