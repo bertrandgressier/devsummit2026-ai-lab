@@ -127,11 +127,12 @@ export class LauncherScene extends Phaser.Scene {
     const cardH = 210;
     const cardY = height * 0.62;
     const gap = 28;
+    // compute three evenly spaced positions (left, center, right)
+    const totalW = cardW * 3 + gap * 2;
+    const startX = width / 2 - totalW / 2 + cardW / 2;
+    const positions = [0, 1, 2].map(i => startX + i * (cardW + gap));
 
-    const leftX = width / 2 - cardW / 2 - gap / 2;
-    const rightX = width / 2 + cardW / 2 + gap / 2;
-
-    this.createGameCard(leftX, cardY, cardW, cardH, {
+    this.createGameCard(positions[0], cardY, cardW, cardH, {
       label: 'CHALLENGE #1',
       title: 'TIC TAC TOE',
       accentColor: PALETTE.teal,
@@ -140,13 +141,22 @@ export class LauncherScene extends Phaser.Scene {
       targetScene: 'TicTacToeMenu',
     });
 
-    this.createGameCard(rightX, cardY, cardW, cardH, {
+    this.createGameCard(positions[1], cardY, cardW, cardH, {
       label: 'CHALLENGE #2',
       title: 'SNAKE',
       accentColor: PALETTE.coral,
       accentStr: PALETTE.coralStr,
       drawIcon: (gfx, cx, cy) => this.drawSnakeIcon(gfx, cx, cy),
       targetScene: 'SnakeGame',
+    });
+
+    this.createGameCard(positions[2], cardY, cardW, cardH, {
+      label: 'CHALLENGE #3',
+      title: 'TETRIS',
+      accentColor: PALETTE.blue,
+      accentStr: PALETTE.blueStr,
+      drawIcon: (gfx, cx, cy) => this.drawTetrisIcon(gfx, cx, cy),
+      targetScene: 'TetrisMenu',
     });
   }
 
@@ -313,6 +323,45 @@ export class LauncherScene extends Phaser.Scene {
     gfx.fillStyle(PALETTE.teal, 0.8);
     gfx.fillRect(ox + seg * 3, oy + seg * 1, seg - 1, seg - 1);
     gfx.fillRect(ox + seg * 3, oy + seg * 2, seg - 1, seg - 1);
+  }
+
+  private drawTetrisIcon(gfx: Phaser.GameObjects.Graphics, cx: number, cy: number): void {
+    // draw a small cluster of tetromino-like blocks (4x4-ish)
+    const size = 8;
+    const gap = 2;
+    const cols = 6;
+    const rows = 4;
+    const totalW = cols * size + (cols - 1) * gap;
+    const totalH = rows * size + (rows - 1) * gap;
+    const ox = cx - totalW / 2;
+    const oy = cy - totalH / 2;
+
+    // palette order for blocks
+    const blocks: { c: number; r: number; color: number }[] = [
+      { c: 0, r: 1, color: PALETTE.teal },
+      { c: 1, r: 1, color: PALETTE.teal },
+      { c: 2, r: 1, color: PALETTE.teal },
+      { c: 3, r: 1, color: PALETTE.teal }, // I piece
+
+      { c: 1, r: 0, color: PALETTE.coral },
+      { c: 1, r: 1, color: PALETTE.coral },
+      { c: 2, r: 1, color: PALETTE.coral },
+      { c: 2, r: 0, color: PALETTE.coral }, // O-ish cluster
+
+      { c: 4, r: 1, color: PALETTE.blue },
+      { c: 4, r: 2, color: PALETTE.blue },
+      { c: 5, r: 2, color: PALETTE.blue },
+      { c: 3, r: 2, color: PALETTE.blue }, // J / L-ish pieces
+    ];
+
+    blocks.forEach(b => {
+      const x = Math.round(ox + b.c * (size + gap));
+      const y = Math.round(oy + b.r * (size + gap));
+      gfx.fillStyle(b.color, 0.95);
+      gfx.fillRect(x, y, size - 1, size - 1);
+      gfx.lineStyle(1, PALETTE.cardBgHover, 0.22);
+      gfx.strokeRect(x, y, size - 1, size - 1);
+    });
   }
 
   private drawTipBar(width: number, height: number): void {
