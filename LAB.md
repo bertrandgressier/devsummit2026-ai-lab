@@ -22,7 +22,7 @@
 
 **Your stack**: Phaser 3 + TypeScript + Vite  
 **Your tool**: OpenCode or GitHub Copilot CLI   
-**Rule**: Small models only — `gpt-4.1-mini`, `claude-haiku-4-5`, `gemini-3-flash`
+**Rule**: Small models only — `gpt-5-mini`, `claude-haiku-4-5`, `gemini-3-flash`
 
 > These are **0.33× models** in GitHub Copilot (one-third of a premium request). Use them intentionally — they amplify the difference between a well-contextualised prompt and a vague one.
 
@@ -67,7 +67,7 @@ Select a small model:
 /models
 ```
 
-Choose `gpt-4.1-mini` (or `claude-haiku-4-5` / `gemini-3-flash`).
+Choose `gpt-5-mini` (or `claude-haiku-4-5` / `gemini-3-flash`).
 
 > **OpenCode agent selection**: slash commands like `/plan`, `/code`, `/design`, `/qa` automatically route to the right agent — you don't need to select one manually. When writing agent files (Steps 2–7), stay in the default session (no agent selected). If you ever type a free-form message and want a specific agent, press **TAB** to pick it from the list — otherwise OpenCode uses the default agent.
 
@@ -80,7 +80,7 @@ copilot
 ```
 
 Select a small model :  
-`gpt-4.1-mini` · `claude-haiku-4-5` · `gemini-3-flash`
+`gpt-5-mini` · `claude-haiku-4-5` · `gemini-3-flash`
 
 > **Note for CLI users**: Slash commands (like `/plan`, `/code`) work directly in OpenCode and the VSCode Chat. In the **Copilot CLI**, you must use the `/agents` command to select your custom agent first, then type your request.
 
@@ -91,7 +91,7 @@ Select a small model :
 For those who prefer not to use the command line, the lab can also be completed with GitHub Copilot directly in VSCode.
 
 Select a small model :  
-`gpt-4.1-mini` · `claude-haiku-4-5` · `gemini-3-flash`
+`gpt-5-mini` · `claude-haiku-4-5` · `gemini-3-flash`
 
 ---
 
