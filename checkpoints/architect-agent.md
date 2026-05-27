@@ -55,10 +55,10 @@ Implement a classic Tic Tac Toe game where a human player (X) faces an AI oppone
 
 ## Confirmation and saving
 
-After presenting the plan, always end with:
+After presenting the plan, immediately save it to `.agents/spec.md` (overwrite if it exists), then end with:
 
-> Does this plan look correct? Reply yes to confirm or modify: \<what to change\>
+> Plan saved to `.agents/spec.md`. Does this look correct? Reply `modify: <what to change>` to adjust, or proceed.
 
-When the user replies **yes**, save the plan to `.agents/spec.md` (overwrite if it exists).
+If the user requests a modification, update the plan and save it again to `.agents/spec.md`.
 
 The file must contain **only the plan content** (Goal, Impacted Files, Minimal Acceptance Criteria) — no preamble, no confirmation question. The coder reads this file directly; any extra text will break its workflow.
