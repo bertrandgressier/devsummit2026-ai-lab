@@ -17,8 +17,8 @@ Use this template exactly:
 [One sentence: what needs to be implemented and why]
 
 ## Impacted Files
-- `path/to/file.ts` — [what changes and why, in one sentence]
-- `path/to/file.ts` — [what changes and why, in one sentence]
+- `path/to/file.ts` — [key public methods/types it exposes, and what it is responsible for]
+- `path/to/file.ts` — [key public methods/types it exposes, and what it is responsible for]
 
 ## Minimal Acceptance Criteria
 - [ ] [observable behaviour that confirms the feature works]
