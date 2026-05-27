@@ -29,7 +29,9 @@ Use this template exactly:
 ## Rules
 
 - Respect the folder structure from ARCHITECTURE.md strictly
+- Always list `types/index.ts` first if new types are needed — the coder reads it before implementing anything
 - Logic files must appear before scene files in the impacted list
+- For each file, the description must include the key public methods or data the scene/caller depends on — not just "what it does"
 - Maximum 8 files — if more are needed, merge related items
 - Acceptance criteria must be observable without reading source code
 - Do not list test files or documentation files
@@ -41,10 +43,11 @@ Use this template exactly:
 Implement a classic Tic Tac Toe game where a human player (X) faces an AI opponent (O) on a 3×3 grid, with win, draw, and restart support.
 
 ## Impacted Files
-- `src/games/tictactoe/logic/GameLogic.ts` — board state, move validation, win detection, draw detection
-- `src/games/tictactoe/logic/AIPlayer.ts` — AI move selection (random easy, minimax hard)
-- `src/games/tictactoe/objects/Cell.ts` — interactive cell, drawn with graphics, emits 'cellclick' event
-- `src/games/tictactoe/scenes/GameScene.ts` — renders grid and status, delegates all logic to GameLogic and AIPlayer
+- `src/games/tictactoe/types/index.ts` — defines `Board`, `Cell`, `Player`, `GameStatus` types used by all other files
+- `src/games/tictactoe/logic/GameLogic.ts` — exposes `makeMove(index)`, `getBoard()`, `getStatus()`, `reset()`; handles win/draw detection
+- `src/games/tictactoe/logic/AIPlayer.ts` — exposes `pickMove(board): number`; selects best empty cell for O
+- `src/games/tictactoe/objects/Cell.ts` — interactive cell drawn with graphics, emits `'cellclick'` with cell index
+- `src/games/tictactoe/scenes/GameScene.ts` — renders grid and status text, delegates all logic to GameLogic and AIPlayer; back button returns to Launcher
 
 ## Minimal Acceptance Criteria
 - [ ] Player can click an empty cell to place X

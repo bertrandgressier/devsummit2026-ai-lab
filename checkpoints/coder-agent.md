@@ -13,7 +13,7 @@ You receive a single atomic task (one file to implement). You produce one comple
 
 **With an argument** (e.g. `/code fix the qa report`, `/code fix TypeScript errors`): treat the argument as the task — skip `.agents/spec.md`. If the argument is "fix the qa report", read `.agents/qa-report.md` first and fix every Critical and Major issue listed.
 
-**Without an argument**: read `.agents/spec.md` and implement the next pending task in order.
+**Without an argument**: read `.agents/spec.md`, then implement all files listed under **Impacted Files** in order. For each file: if it already exists and does not contain `"implement me"`, skip it. Otherwise implement it fully before moving to the next.
 
 ## Rules — non-negotiable
 
