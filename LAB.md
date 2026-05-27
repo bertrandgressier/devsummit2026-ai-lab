@@ -278,7 +278,7 @@ Open the file once created. Ask yourself: does every line help an agent decide w
 This is the most constrained agent — strict rules produce correct code.
 
 Ask your tool to help you write it. Give it enough context:
-> "Update the coder agent for a Phaser 3 TypeScript game (`.opencode/agent/coder.md` / `.github/agents/coder.md`). It reads ARCHITECTURE.md, DESIGN.md, and .agents/spec.md before every task, then implements one file at a time. Output is the complete TypeScript file only — no explanation. When blocked, it stops and outputs: 'BLOCKED: <reason>'."
+> "Update the coder agent for a Phaser 3 TypeScript game (`.opencode/agent/coder.md` / `.github/agents/coder.md`). It reads ARCHITECTURE.md, DESIGN.md, and .agents/spec.md before every task, then implements one file at a time. It has two modes: if called with no argument it reads .agents/spec.md and implements the next pending task; if called with an argument (e.g. 'fix the qa report') it treats the argument as the task and skips spec.md — if the argument is 'fix the qa report' it reads .agents/qa-report.md first. Output is the complete TypeScript file only — no explanation. When blocked, it stops and outputs: 'BLOCKED: <reason>'."
 
 Write the result into the file, keeping the frontmatter.
 
@@ -350,7 +350,7 @@ This way, the agent self-corrects without you having to ask.
 A file-level review misses the big picture. The QA agent should scan the entire game — every file under `src/games/<game>/` — and produce a single consolidated report.
 
 Ask your tool to help you write it:
-> "Update the QA agent definition for a Phaser 3 TypeScript game (`.opencode/agent/qa.md` / `.github/agents/qa.md`). It receives a game name (e.g. `tictactoe`). It reads ARCHITECTURE.md first, then scans every TypeScript file under `src/games/<game>/`. It reports every violation with exact file path and line number. It classifies issues as Critical, Major, or Minor. It never modifies code. Output is a single QA report for the whole game."
+> "Update the QA agent definition for a Phaser 3 TypeScript game (`.opencode/agent/qa.md` / `.github/agents/qa.md`). It receives a game name (e.g. `tictactoe`). It reads ARCHITECTURE.md first, then scans every TypeScript file under `src/games/<game>/`. It reports every violation with exact file path and line number. It classifies issues as Critical, Major, or Minor. It never modifies code. After the review it saves the full report to `.agents/qa-report.md`, then prints it to the conversation."
 
 Write the result into the file, keeping the frontmatter.
 
@@ -374,22 +374,22 @@ tictactoe
 /qa tictactoe
 ```
 
-Read the report. If there are Critical or Major issues, hand them back to the coder agent. (Reminder: in Copilot CLI, use `/agents` to switch back to the coder).
+Read the report. If there are Critical or Major issues, hand them back to the coder — it will read `.agents/qa-report.md` automatically:
 
 **OpenCode**:
 ```
-/code fix the issues reported by QA: [paste the Critical and Major items]
+/code fix the qa report
 ```
 
 **Copilot CLI**:
 ```
 /agents  # Select "coder"
-fix the issues reported by QA: [paste the Critical and Major items]
+fix the qa report
 ```
 
 **Copilot VSCode**:
 ```
-/code fix the issues reported by QA: [paste the Critical and Major items]
+/code fix the qa report
 ```
 
 Then run the build to confirm:
@@ -456,6 +456,7 @@ Now run the same loop as before with a simple, business-level prompt:
 /plan Snake — real-time arcade snake, eat food, avoid walls and yourself. Template exists under src/games/snake/ — replace the "implement me" stub. Must launch from the menu.
 /code
 /qa snake
+/code fix the qa report   # only if QA reports issues
 /archive
 ```
 
@@ -464,6 +465,7 @@ Now run the same loop as before with a simple, business-level prompt:
 /agents  # Select "architect" -> "Snake — real-time arcade snake, eat food, avoid walls and yourself. Template exists under src/games/snake/ — replace the "implement me" stub. Must launch from the menu."
 /agents  # Select "coder" -> "Run next task" (repeat as needed)
 /agents  # Select "qa" -> "snake"
+/agents  # Select "coder" -> "fix the qa report"  (only if QA reports issues)
 /agents  # Select "archive"
 ```
 
@@ -472,6 +474,7 @@ Now run the same loop as before with a simple, business-level prompt:
 /plan Snake — real-time arcade snake, eat food, avoid walls and yourself. Template exists under src/games/snake/ — replace the "implement me" stub. Must launch from the menu.
 /code
 /qa snake
+/code fix the qa report   # only if QA reports issues
 /archive
 ```
 

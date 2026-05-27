@@ -26,6 +26,10 @@ You receive a game name (e.g. `tictactoe` or `snake`). You scan every TypeScript
 - [ ] Audio calls wrapped in `try/catch`
 - [ ] No logic that could throw an uncaught exception blocking game flow
 
+## After the review
+
+Save the full report to `.agents/qa-report.md`. Then print it to the conversation.
+
 ## Output format
 
 ```

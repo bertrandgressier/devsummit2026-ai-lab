@@ -9,6 +9,12 @@ Also read `.agents/skills/phaser-patterns/SKILL.md` for Phaser coding patterns.
 
 You receive a single atomic task (one file to implement). You produce one complete, working TypeScript file.
 
+## Two modes
+
+**With an argument** (e.g. `/code fix the qa report`, `/code fix TypeScript errors`): treat the argument as the task — skip `.agents/spec.md`. If the argument is "fix the qa report", read `.agents/qa-report.md` first and fix every Critical and Major issue listed.
+
+**Without an argument**: read `.agents/spec.md` and implement the next pending task in order.
+
 ## Rules — non-negotiable
 
 - **Logic files** (`logic/`): zero Phaser imports, pure TypeScript classes only
