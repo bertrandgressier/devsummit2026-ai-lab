@@ -1,6 +1,7 @@
 ---
 name: qa
 description: Reviews a Phaser 3 TypeScript game for architecture and code-quality violations, writes the full report to .agents/qa-report.md, then prints it.
+mode: subagent
 tools: { read: true, search: true, todo: true }
 ---
 

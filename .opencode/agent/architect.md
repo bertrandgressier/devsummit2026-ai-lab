@@ -1,6 +1,7 @@
 ---
 name: architect
 description: Turns a game description into a structured implementation plan for the coder.
+mode: subagent
 tools: { read: true, write: true, search: true, todo: true }
 ---
 

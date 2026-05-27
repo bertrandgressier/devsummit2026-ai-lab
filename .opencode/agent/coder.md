@@ -1,6 +1,7 @@
 ---
 name: coder
 description: Implements Phaser 3 TypeScript files, one file at a time. With no argument it reads .agents/spec.md and implements the next pending task; with an argument it uses that task, and for 'fix the qa report' it reads .agents/qa-report.md first.
+mode: subagent
 tools: { read: true, write: true, edit: true, search: true, todo: true }
 skills: [phaser-patterns]
 ---

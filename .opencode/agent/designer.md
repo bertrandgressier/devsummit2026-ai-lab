@@ -1,6 +1,7 @@
 ---
 name: designer
 description: TODO — what does this agent do in one sentence?
+mode: subagent
 tools: { read: true, write: true, edit: true, todo: true }
 ---
 
@@ -38,4 +39,3 @@ This agent is not yet implemented. Your job: write it.
 
 [describe: what file to write, what sections it must contain]
 ```
-
