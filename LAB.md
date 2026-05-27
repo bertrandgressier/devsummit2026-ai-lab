@@ -4,17 +4,21 @@
 
 | | Step | Duration |
 |---|---|---|
+| | [Ice breaker & Prompting tips](#ice-breaker--prompting-tips-10-min) | 10 min |
 | | [Setup](#setup-5-min) | 5 min |
 | 1 | [Without context](#step-1--without-context-5-min) | 5 min |
-| 2 | [Context first, then a plan](#step-2--context-first-then-a-plan-17-min) | 17 min |
-| 3 | [Write the designer agent](#step-3--write-the-designer-agent-8-min) | 8 min |
-| 4 | [Skill vs agent](#step-4--skill-vs-agent-understand-the-difference-8-min) | 8 min |
+| 2 | [Context first, then a plan](#step-2--context-first-then-a-plan-10-min) | 10 min |
+| 3 | [Write the designer agent](#step-3--write-the-designer-agent-5-min) | 5 min |
+| 4 | [Skill vs agent](#step-4--skill-vs-agent-understand-the-difference-5-min) | 5 min |
 | 5 | [Write AGENTS.md](#step-5--write-agentsmd-5-min) | 5 min |
 | 6 | [Write the coder agent](#step-6--write-the-coder-agent-10-min) | 10 min |
-| 7 | [Write the QA agent](#step-7--write-the-qa-agent-7-min) | 7 min |
-| 8 | [Run it](#step-8--run-it-3-min) | 3 min |
-| 9 | [Snake](#step-9--snake-25-min) | 25 min |
+| 7 | [Write the QA agent](#step-7--write-the-qa-agent-5-min) | 5 min |
+| 8 | [Run it](#step-8--run-it-2-min) | 2 min |
+| | [Checkpoint sync #1](#checkpoint-sync-1--62-min-in) | |
+| 9 | [Snake](#step-9--snake-13-min) | 13 min |
 | ★ | [Bonus — Orchestrator agent](#bonus--orchestrator-agent-opencode-only) | if time |
+| | [Checkpoint sync #2](#checkpoint-sync-2--80-min-in) | |
+| | [Wrap-up](#wrap-up-10-min) | 10 min |
 
 **Your stack**: Phaser 3 + TypeScript + Vite  
 **Your tool**: OpenCode or GitHub Copilot CLI   
@@ -28,6 +32,12 @@
 > | **GitHub Copilot** | `.github/agents/*.md` | `.github/prompts/*.prompt.md` |
 >
 > Fill in the files that match your tool. The hints and templates inside are identical.
+
+---
+
+## Ice breaker & Prompting tips (10 min)
+
+Welcome! Let's start with a quick ice breaker and some examples of what makes a good prompt when working with small models.
 
 ---
 
@@ -107,7 +117,7 @@ Write down 3 things that don't fit the project.
 
 ---
 
-## Step 2 — Context first, then a plan (17 min)
+## Step 2 — Context first, then a plan (10 min)
 
 ### Why planning matters
 
@@ -159,7 +169,7 @@ Tic Tac Toe — classic 3x3 grid, player X vs AI opponent
 
 ---
 
-## Step 3 — Write the designer agent (8 min)
+## Step 3 — Write the designer agent (5 min)
 
 **OpenCode**: open `.opencode/agent/designer.md`  
 **Copilot**: open `.github/agents/designer.md`
@@ -195,7 +205,7 @@ Open `DESIGN.md`. Every value must be exact — the coder will use them directly
 
 ---
 
-## Step 4 — Skill vs agent: understand the difference (8 min)
+## Step 4 — Skill vs agent: understand the difference (5 min)
 
 Before writing the coder agent, look at `.agents/skills/phaser-patterns/SKILL.md`.  
 It's pre-filled. Read it — 2 minutes.
@@ -328,13 +338,7 @@ This way, the agent self-corrects without you having to ask.
 
 ---
 
-## Checkpoint sync #1 — ~45 min in
-
-Facilitators will show the four agent definitions side by side. Grab the checkpoint you need if you're behind.
-
----
-
-## Step 7 — Write the QA agent (7 min)
+## Step 7 — Write the QA agent (5 min)
 
 **OpenCode**: open `.opencode/agent/qa.md`  
 **Copilot**: open `.github/agents/qa.md`
@@ -394,7 +398,7 @@ npm run build
 
 ---
 
-## Step 8 — Run it (3 min)
+## Step 8 — Run it (2 min)
 
 ```bash
 npm run dev
@@ -423,7 +427,13 @@ This reads the game name from `.agents/spec.md` and moves it to `.agents/archive
 
 ---
 
-## Step 9 — Snake (25 min)
+## Checkpoint sync #1 — ~60 min in
+
+Facilitators will show the four agent definitions side by side. Grab the checkpoint you need if you're behind.
+
+---
+
+## Step 9 — Snake (13 min)
 
 **Rule: you cannot modify your agents. Reuse them exactly as written.**
 
@@ -469,8 +479,6 @@ When done, open the launcher and play Snake.
 
 ## Bonus — Orchestrator agent (OpenCode only)
 
-Facilitators will show a working Snake. Catch up if needed.
-
 > Only if you have time. This is an advanced OpenCode feature.
 
 So far you've been invoking each agent manually, one step at a time. OpenCode supports a different model: a **primary agent** that coordinates **subagents** automatically. You write the game description once — the orchestrator plans, designs, codes, reviews, and archives without you driving each step.
@@ -509,7 +517,13 @@ Watch the subagents fire in sequence. Use **Leader+Down** to navigate into a chi
 
 ---
 
-## Wrap-up questions (5 min)
+## Checkpoint sync #2 — ~80 min in
+
+Facilitators will show a working Snake. Catch up if needed.
+
+---
+
+## Wrap-up (10 min)
 
 1. Why did the same model produce better output when you added `ARCHITECTURE.md`?
 2. What is the difference between a **skill** and an **agent**? Give a concrete example from this lab.
