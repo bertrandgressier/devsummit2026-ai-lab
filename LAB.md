@@ -527,6 +527,11 @@ Watch the subagents fire in sequence. Use **Leader+Down** to navigate into a chi
 
 > Stuck? → [checkpoints/orchestrator-agent.md](checkpoints/orchestrator-agent.md)
 
+> **Want a working solution?** Switch to the `bonus-orchestrator` branch:
+> ```bash
+> git fetch origin && git checkout bonus-orchestrator
+> ```
+
 ---
 
 ## Checkpoint sync #2 — ~80 min in
