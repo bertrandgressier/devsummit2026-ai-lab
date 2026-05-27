@@ -86,6 +86,7 @@ export class GameLogic {
 
   setBoardState(board: Board): void {
     this._board = [...board];
+    this._winningCells = null;
   }
 
   reset(): void {
@@ -100,6 +101,7 @@ export class GameLogic {
       Player.None,
       Player.None,
     ];
+    this._winningCells = null;
   }
 
   getWinningCells(): number[] | null {
