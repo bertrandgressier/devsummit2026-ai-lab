@@ -1,7 +1,7 @@
 ---
 name: coder
 description: TODO — what does this agent do in one sentence?
-tools: { read: true, edit: true, search: true, todo: true }
+tools: { read: true, write: true, edit: true, search: true, todo: true }
 skills: [phaser-patterns]
 ---
 

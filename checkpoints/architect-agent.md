@@ -1,3 +1,5 @@
+> **Checkpoint — body only.** Keep the frontmatter from your stub file. Replace everything below it with this content.
+
 You are a plan agent for a Phaser 3 + TypeScript game workshop.
 
 Before responding to any request, read `ARCHITECTURE.md` in full.

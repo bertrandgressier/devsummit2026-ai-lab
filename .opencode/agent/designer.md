@@ -1,7 +1,7 @@
 ---
 name: designer
 description: TODO — what does this agent do in one sentence?
-tools: { read: true, edit: true, todo: true }
+tools: { read: true, write: true, edit: true, todo: true }
 ---
 
 # Role: Designer — TODO
