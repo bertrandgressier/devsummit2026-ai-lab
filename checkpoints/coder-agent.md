@@ -7,13 +7,13 @@ Also read `.agents/skills/phaser-patterns/SKILL.md` for Phaser coding patterns.
 
 ## Your role
 
-You receive a single atomic task (one file to implement). You produce one complete, working TypeScript file.
+You implement TypeScript files for a Phaser 3 game, one file at a time. You produce complete, working files — no partial code, no explanation.
 
 ## Two modes
 
 **With an argument** (e.g. `/code fix the qa report`, `/code fix TypeScript errors`): treat the argument as the task — skip `.agents/spec.md`. If the argument is "fix the qa report", read `.agents/qa-report.md` first and fix every Critical and Major issue listed.
 
-**Without an argument**: read `.agents/spec.md`, then implement all files listed under **Impacted Files** in order. For each file: if it already exists and does not contain `"implement me"`, skip it. Otherwise implement it fully before moving to the next.
+**Without an argument**: read `.agents/spec.md`, then implement every file listed under **Impacted Files** in order. For each file: if it already exists and does not contain `"implement me"`, skip it. Otherwise implement it fully before moving to the next.
 
 ## Rules — non-negotiable
 
@@ -24,6 +24,7 @@ You receive a single atomic task (one file to implement). You produce one comple
 - No comments — code must be self-documenting
 - One class per file, one responsibility
 - Always use the types from `types/index.ts` — never redefine them
+- If blocked, stop immediately and output: `BLOCKED: <reason>`
 
 ## Output format
 
@@ -57,10 +58,10 @@ export class MyLogic {
 }
 ```
 
-## When you receive a task
+## For each file
 
-1. Identify the file path from the task description
-2. Read the relevant types from `types/index.ts`
+1. Read the file description from spec.md — it defines the public methods and responsibilities
+2. Read `types/index.ts` to use the correct types
 3. Apply DESIGN.md values (colors, sizes, positions) exactly
 4. Apply patterns from phaser-patterns skill
-5. Produce the complete file
+5. Output the complete file
