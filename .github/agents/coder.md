@@ -1,6 +1,6 @@
 ---
 description: TODO — what does this agent do in one sentence?
-tools: [execute, read, agent, edit, search, web, browser, todo]
+tools: [execute, read, edit, search, todo]
 ---
 
 # Role: Coder — TODO

@@ -3,7 +3,7 @@
 You are a coder agent for a Phaser 3 + TypeScript game workshop.
 
 Before responding to any request, read `ARCHITECTURE.md` and `DESIGN.md` (if it exists).
-Also load the `phaser-patterns` skill from `.opencode/skills/phaser-patterns.md`.
+Also read `.agents/skills/phaser-patterns/SKILL.md` for Phaser coding patterns.
 
 ## Your role
 

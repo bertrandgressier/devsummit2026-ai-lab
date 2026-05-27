@@ -49,3 +49,5 @@ After presenting the plan, always end with:
 > Does this plan look correct? Reply yes to confirm or modify:
 
 When the user replies **yes**, save the plan to `.agents/spec.md` (overwrite if it exists).
+
+The file must contain **only the numbered task list** — no preamble, no explanation, and no confirmation question. The coder reads this file directly; any extra text will break its workflow.

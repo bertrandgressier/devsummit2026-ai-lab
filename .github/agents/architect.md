@@ -1,6 +1,6 @@
 ---
 description: TODO — what does this agent do in one sentence?
-tools: [execute/getTerminalOutput, execute/killTerminal, execute/runInTerminal, read, search, browser, todo]
+tools: [read, edit, search, todo]
 ---
 
 # Role: Architect — TODO

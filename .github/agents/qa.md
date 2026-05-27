@@ -1,6 +1,6 @@
 ---
 description: TODO — what does this agent do in one sentence?
-
+tools: [read, search, todo]
 ---
 
 # Role: QA Engineer — TODO

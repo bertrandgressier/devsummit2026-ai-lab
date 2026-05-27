@@ -1,6 +1,6 @@
 ---
 description: TODO — what does this agent do in one sentence?
-
+tools: [read, edit, todo]
 ---
 
 # Role: Designer — TODO
