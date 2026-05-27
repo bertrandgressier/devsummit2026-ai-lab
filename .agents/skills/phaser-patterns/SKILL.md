@@ -42,6 +42,47 @@ const zone = this.add.zone(x, y, width, height).setInteractive({ useHandCursor: 
 btn.disableInteractive();
 ```
 
+## Grid / board input — always use a world-space Zone
+
+When implementing a grid or board (tile map, tic-tac-toe, etc.), **never** put
+`setInteractive()` on a `Container` that is itself a child of another `Container`.
+Phaser 3.60+ does **not** propagate the parent Container's world transform to the
+child's hit area, so clicks either miss or land on the wrong cell.
+
+Instead, place a **single `Zone`** at the board's exact world coordinates directly
+in the Scene (not inside any Container). Calculate the cell from
+`pointer.worldX / pointer.worldY`:
+
+```typescript
+const BOARD_X = 190, BOARD_Y = 90;
+const BOARD_W = 420,  BOARD_H = 420;
+const CELL_W  = 140,  CELL_H  = 140;
+
+// Zone origin defaults to (0.5, 0.5) — pass the centre point
+const boardZone = this.add
+  .zone(BOARD_X + BOARD_W / 2, BOARD_Y + BOARD_H / 2, BOARD_W, BOARD_H)
+  .setInteractive({ useHandCursor: true });
+
+boardZone.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
+  const lx = pointer.worldX - BOARD_X;   // local x inside board
+  const ly = pointer.worldY - BOARD_Y;   // local y inside board
+  if (lx < 0 || lx >= BOARD_W || ly < 0 || ly >= BOARD_H) return;
+  const col   = Math.floor(lx / CELL_W);
+  const row   = Math.floor(ly / CELL_H);
+  const index = row * 3 + col;           // adapt to your grid size
+  handleCellClick(index);
+});
+
+// Lock the board while AI is thinking or game is over
+boardZone.disableInteractive();
+
+// Restore for the human's turn
+boardZone.setInteractive({ useHandCursor: true });
+```
+
+Cell / tile Container objects stay **pure rendering** — no `setInteractive`,
+no `pointerdown` listeners, no `setSize` for hit detection.
+
 ## Drawing shapes
 
 ```typescript
@@ -230,4 +271,19 @@ const data = init_data as any;
 init(data: SceneData): void {
   this.difficulty = data?.difficulty ?? Difficulty.Easy;
 }
+
+// ❌ setInteractive() on a Container that lives inside another Container.
+//    Phaser 3.60+ does NOT apply the parent Container's world transform to
+//    the hit area → wrong-cell clicks, missed clicks, unpredictable input.
+class Cell extends Phaser.GameObjects.Container {
+  constructor(scene, x, y) {
+    super(scene, x, y);
+    // x, y are LOCAL to the parent Grid Container, but Phaser will test the
+    // hit area as if the object were at (x, y) in world space → offset bug.
+    this.setInteractive(new Phaser.Geom.Rectangle(-70, -70, 140, 140),
+                        Phaser.Geom.Rectangle.Contains);
+  }
+}
+// ✅ Keep Container children as pure renderers; own the input with a single
+//    world-space Zone in the Scene (see "Grid / board input" above).
 ```
