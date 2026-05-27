@@ -435,6 +435,11 @@ This reads the game name from `.agents/spec.md` and moves it to `.agents/archive
 
 Facilitators will show the four agent definitions side by side. Grab the checkpoint you need if you're behind.
 
+> **Behind?** Switch to the `checkpoint-1` branch — it has all agents pre-filled and Tic Tac Toe working:
+> ```bash
+> git fetch origin && git checkout checkpoint-1
+> ```
+
 ---
 
 ## Step 9 — Snake (13 min)
