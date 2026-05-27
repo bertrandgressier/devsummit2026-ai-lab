@@ -451,7 +451,7 @@ Now run the same loop as before with a simple, business-level prompt:
 
 **OpenCode**:
 ```
-/plan Snake — real-time arcade snake, eat food, avoid walls and yourself
+/plan Snake — real-time arcade snake, eat food, avoid walls and yourself. Template exists under src/games/snake/ — replace the "implement me" stub. Must launch from the menu.
 /code
 /qa snake
 /archive
@@ -459,7 +459,7 @@ Now run the same loop as before with a simple, business-level prompt:
 
 **Copilot CLI**:
 ```
-/agents  # Select "architect" -> "Snake — real-time arcade snake..."
+/agents  # Select "architect" -> "Snake — real-time arcade snake, eat food, avoid walls and yourself. Template exists under src/games/snake/ — replace the "implement me" stub. Must launch from the menu."
 /agents  # Select "coder" -> "Run next task" (repeat as needed)
 /agents  # Select "qa" -> "snake"
 /agents  # Select "archive"
@@ -467,7 +467,7 @@ Now run the same loop as before with a simple, business-level prompt:
 
 **Copilot VSCode**:
 ```
-/plan Snake — real-time arcade snake, eat food, avoid walls and yourself
+/plan Snake — real-time arcade snake, eat food, avoid walls and yourself. Template exists under src/games/snake/ — replace the "implement me" stub. Must launch from the menu.
 /code
 /qa snake
 /archive
