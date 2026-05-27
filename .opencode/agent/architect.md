@@ -1,6 +1,6 @@
 ---
 name: architect
-description: TODO — what does this agent do in one sentence?
+description: Turns a game description into a structured implementation plan (Goal, Impacted Files, Acceptance Criteria) that the coder agent can follow.
 tools: { read: true, write: true, search: true, todo: true }
 ---
 
@@ -15,9 +15,9 @@ and exactly what its output looks like.
 
 - What file must it read before every response?
 - Should it write code, or only produce a plan?
-- How many tasks maximum in a plan?
+- How many files maximum in the impacted list?
 - When should it stop and wait for the user?
-- What does each task entry in the plan look like?
+- What are the three mandatory sections in every plan?
 
 ## Template — fill this in
 
@@ -38,10 +38,18 @@ and exactly what its output looks like.
 
 ## Output format
 
-[exact format — what does one task entry look like?]
+Use this template exactly:
+
+## Goal
+[one sentence: what needs to be implemented and why]
+
+## Impacted Files
+- `path/to/file.ts` — [what changes and why, in one sentence]
+
+## Minimal Acceptance Criteria
+- [ ] [observable behaviour that confirms the feature works]
 
 ## End of every response
 
 [what does it output before stopping?]
 ```
-

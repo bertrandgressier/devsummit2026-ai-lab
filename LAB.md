@@ -137,7 +137,7 @@ It's a stub with hints. Open it and read the objective.
 An agent definition tells a model what role to play, what it must always do, what it must never do, and exactly what its output looks like. Small models need more structure — vague instructions produce vague plans.
 
 Ask your tool to help you write it. Give it enough context:
-> "I need you update files for architect agent definition for a Phaser 3 TypeScript game. Files are `.opencode/agent/architect.md` for OpenCode or `.github/agents/architect.md` for Copilot. The agent's objective is to turn a game description into a structured implementation plan that a coder can follow file by file. It must always read ARCHITECTURE.md first to know the folder structure, scene types, and coding rules. It produces a numbered list of tasks, one per file, each with: the file path, what to implement, and which types or interfaces to use. Maximum 8 tasks. It never writes code. At the end of every plan it asks: 'Does this plan look correct? Reply yes to confirm or modify: <what to change>.' When the user replies yes, it saves the plan to .agents/spec.md. The file must contain only the numbered task list — no preamble, no explanation, and no confirmation question."
+> "I need you to update the architect agent definition for a Phaser 3 TypeScript game. Files are `.opencode/agent/architect.md` for OpenCode or `.github/agents/architect.md` for Copilot. The agent's objective is to turn a game description into a structured plan that gives the coder context — not just a list of files. It must always read ARCHITECTURE.md first. Its output uses a fixed three-section template: **Goal** (one sentence on what to build and why), **Impacted Files** (list of file paths each with a one-sentence explanation of what changes), and **Minimal Acceptance Criteria** (observable checklist of what done looks like). Maximum 8 files. It never writes code. At the end of every plan it asks: 'Does this plan look correct? Reply yes to confirm or modify: \<what to change\>.' When the user replies yes, it saves the plan to .agents/spec.md. The file must contain only the three sections — no preamble, no explanation, no confirmation question."
 
 Write the result into the file, keeping the frontmatter.
 
@@ -161,7 +161,9 @@ Tic Tac Toe — classic 3x3 grid, player X vs AI opponent
 /plan Tic Tac Toe — classic 3x3 grid, player X vs AI opponent
 ```
 
-- Read the plan. Does it respect the folder structure from `ARCHITECTURE.md`?
+- Read the plan. Does the **Goal** capture what you asked for?
+- Do the **Impacted Files** respect the folder structure from `ARCHITECTURE.md`?
+- Do the **Minimal Acceptance Criteria** describe observable behaviour (not code)?
 - If something is wrong, reply: `modify: <what to change>`
 - When satisfied, reply: `yes` — the plan is saved to `.agents/spec.md`
 
