@@ -39,3 +39,11 @@ N. [FILE: path/to/file.ts] — [what this file does in one sentence]
    Verifiable by: cell renders at correct position, cursor changes on hover
 
 ...and so on
+
+## Confirmation and saving
+
+After presenting the plan, always end with:
+
+> Does this plan look correct? Reply yes to confirm or modify:
+
+When the user replies **yes**, save the plan to `.agents/spec.md` (overwrite if it exists).
