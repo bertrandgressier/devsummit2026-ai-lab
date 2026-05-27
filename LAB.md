@@ -147,18 +147,18 @@ Then test it:
 
 **OpenCode**:
 ```
-/plan Tic Tac Toe — classic 3x3 grid, player X vs AI opponent
+/plan Tic Tac Toe — classic 3x3 grid, player X vs AI opponent. Template exists under src/games/tictactoe/ — replace the "implement me" stub. Must launch from the menu.
 ```
 
 **Copilot CLI**:
 ```
 /agents  # Select "architect" from the list
-Tic Tac Toe — classic 3x3 grid, player X vs AI opponent
+Tic Tac Toe — classic 3x3 grid, player X vs AI opponent. Template exists under src/games/tictactoe/ — replace the "implement me" stub. Must launch from the menu.
 ```
 
 **Copilot VSCode**:
 ```
-/plan Tic Tac Toe — classic 3x3 grid, player X vs AI opponent
+/plan Tic Tac Toe — classic 3x3 grid, player X vs AI opponent. Template exists under src/games/tictactoe/ — replace the "implement me" stub. Must launch from the menu.
 ```
 
 - Read the plan. Does the **Goal** capture what you asked for?
