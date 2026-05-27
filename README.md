@@ -5,8 +5,10 @@
 **AI4Dev Lab** — Small model. Better context. Better output.
 
 **Stack**: Phaser 3 + TypeScript + Vite  
-**Model constraint**: Small models only — `gpt-5-mini`, `claude-3-5-haiku`, `gemini-3-flash-preview`  
+**Model constraint**: Small models only — `gpt-5-mini`, `gpt-5.4-mini`, `claude-haiku-4-5`, `gemini-3-flash`  
 **CLI**: OpenCode or GitHub Copilot
+
+> In GitHub Copilot: `gpt-5-mini` costs **0×** (free), `gpt-5.4-mini` / `claude-haiku-4-5` / `gemini-3-flash` cost **0.33×**.
 
 > Presented by [@bertrandgressier](https://github.com/bertrandgressier) & [@ThomasRumasLM](https://github.com/ThomasRumasLM)
 
@@ -45,7 +47,7 @@ npm install -g opencode-ai
 opencode providers login 
 ```
 
-select github-copilot` → opens browser → login to GitHub → authorize device
+select `github-copilot` → opens browser → login to GitHub → authorize device
 
 
 Running opencode in your terminal
@@ -55,9 +57,10 @@ opencode
 
 Then select a small model:
 In opencode settings (/models), select a **small model only**:
-- `google-vertex/claude-haiku-4-5@20251001`
-- `github-copilot/gpt-5-mini`
-- `github-copilot/gemini-3-flash-preview`
+- `github-copilot/gpt-5-mini` (0×)
+- `github-copilot/gpt-5.4-mini` (0.33×)
+- `github-copilot/claude-haiku-4-5` (0.33×)
+- `github-copilot/gemini-3-flash` (0.33×)
 
 Forbidden: `claude-sonnet`, `claude-opus`, `gpt-4o`, `gemini-pro`
 
@@ -77,8 +80,8 @@ Prompts: run via the Copilot Chat prompt runner or `/` prefix.
 |---|---|---|
 | `/plan <game description>` | `plan.prompt.md` | Generate an implementation plan (architect) |
 | `/design <game + mood>` | `design.prompt.md` | Generate visual specs (designer) |
-| `/code` | `code.prompt.md` | Implement the plan file by file (coder) |
-| `/qa <game name>` | `qa.prompt.md` | Review all game files for issues (QA) |
+| `/code [instruction]` | `code.prompt.md` | Implement plan files in order, or act on an explicit instruction |
+| `/qa <game name>` | `qa.prompt.md` | Review all game files, save report to `.agents/qa-report.md` |
 | `/archive` | `archive.prompt.md` | Archive the current spec before the next game |
 
 **OpenCode**: commands live in `.opencode/command/`  
@@ -92,10 +95,10 @@ Four roles — fill in the stub that matches your tool:
 
 | Agent | Role | OpenCode | Copilot |
 |---|---|---|---|
-| `architect` | Reads game spec + ARCHITECTURE.md → produces an ordered plan | `.opencode/agent/architect.md` | `.github/agents/architect.md` |
+| `architect` | Reads game description + ARCHITECTURE.md → produces ordered plan saved to `.agents/spec.md` | `.opencode/agent/architect.md` | `.github/agents/architect.md` |
 | `designer` | Produces DESIGN.md with exact colors, layout, animations | `.opencode/agent/designer.md` | `.github/agents/designer.md` |
-| `coder` | Implements one file per task, loads `phaser-patterns` skill | `.opencode/agent/coder.md` | `.github/agents/coder.md` |
-| `qa` | Reviews code against ARCHITECTURE.md rules, never modifies files | `.opencode/agent/qa.md` | `.github/agents/qa.md` |
+| `coder` | Implements all spec files in order (skips already-done), or acts on an explicit instruction | `.opencode/agent/coder.md` | `.github/agents/coder.md` |
+| `qa` | Reviews code against ARCHITECTURE.md rules, saves report to `.agents/qa-report.md`, never modifies files | `.opencode/agent/qa.md` | `.github/agents/qa.md` |
 
 ---
 
@@ -118,6 +121,7 @@ One skill in `.agents/skills/`:
 .agents/
   skills/        ← reusable knowledge injected into agents
   spec.md        ← generated plan (gitignored)
+  qa-report.md   ← latest QA report (gitignored)
 .opencode/
   agent/         ← OpenCode role definitions
   command/       ← OpenCode slash commands
@@ -129,6 +133,19 @@ src/             ← Phaser project (implement inside games/)
 AGENTS.md        ← auto-loaded by every agent, maps key project files
 ARCHITECTURE.md  ← folder structure, mandatory rules, scene types
 LAB.md           ← step-by-step lab guide
+```
+
+---
+
+## Checkpoint branches
+
+| Branch | What's in it |
+|---|---|
+| `checkpoint-1` | All agents pre-filled, Tic Tac Toe working — start here for Step 9 |
+| `bonus-orchestrator` | Full orchestrator setup with all subagents configured |
+
+```bash
+git fetch origin && git checkout checkpoint-1
 ```
 
 ---
