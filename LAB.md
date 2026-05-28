@@ -71,6 +71,8 @@ Choose `gpt-5-mini` (or `gpt-5.4-mini` / `claude-haiku-4-5` / `gemini-3-flash`).
 
 > **OpenCode agent selection**: slash commands like `/plan`, `/code`, `/design`, `/qa` automatically route to the right agent — you don't need to select one manually. When writing agent files (Steps 2–7), stay in the default session (no agent selected). If you ever type a free-form message and want a specific agent, press **TAB** to pick it from the list — otherwise OpenCode uses the default agent.
 
+> **When you move to a new step**, start a fresh session with `/new` first. That keeps the next agent run clean and avoids carrying old context into the new step.
+
 ### Option B — GitHub Copilot CLI
 
 Run copilot-cli in your terminal:
