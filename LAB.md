@@ -280,7 +280,7 @@ Open the file once created. Ask yourself: does every line help an agent decide w
 This is the most constrained agent — strict rules produce correct code.
 
 Ask your tool to help you write it. Give it enough context:
-> "Update the coder agent for a Phaser 3 TypeScript game (`.opencode/agent/coder.md` / `.github/agents/coder.md`). It reads ARCHITECTURE.md, DESIGN.md, and .agents/spec.md before every task, then implements one file at a time. It has two modes: if called with no argument it reads .agents/spec.md and implements every file in the Impacted Files list in order — skipping any file that already exists and does not contain 'implement me'; if called with an argument (e.g. 'fix the qa report') it treats the argument as the task and skips spec.md — if the argument is 'fix the qa report' it reads .agents/qa-report.md first. For each file it reads the spec description to know what public methods to implement, reads types/index.ts, applies DESIGN.md values, and outputs the complete TypeScript file only — no explanation, no markdown. When blocked, it stops and outputs: 'BLOCKED: <reason>'."
+> "Update the coder agent for a Phaser 3 TypeScript game (`.opencode/agent/coder.md` / `.github/agents/coder.md`). It reads ARCHITECTURE.md, DESIGN.md, and .agents/spec.md before every task, then implements one file at a time. It has two modes: if called with no argument it reads .agents/spec.md and implements every file in the Impacted Files list in order — skipping any file that already exists and does not contain 'implement me'; if called with an argument (e.g. 'fix the qa report') it treats the argument as the task and skips spec.md — if the argument is 'fix the qa report' it reads .agents/qa-report.md first. For each file it reads the spec description to know what public methods to implement, reads types/index.ts, applies DESIGN.md values, and outputs the complete TypeScript file only — no explanation, no markdown. Non-negotiable rules: logic files (logic/) must have zero Phaser imports — pure TypeScript classes only; scene files (scenes/) must contain no game logic — delegate everything to logic classes; never use as any, @ts-ignore, or @ts-expect-error; never redefine types already in types/index.ts; one class per file. When blocked, it stops and outputs: 'BLOCKED: <reason>'. Always runs npm run build at the end of every task — if it fails, fixes the errors and runs again before stopping."
 
 Write the result into the file, keeping the frontmatter.
 
@@ -333,12 +333,6 @@ fix the TypeScript errors from npm run build
 ```
 /code fix the TypeScript errors from npm run build
 ```
-
-But a better approach: update your coder agent definition to always run the build before finishing. Add this to its rules:
-
-> Always run `npm run build` at the end of every task. If it fails, fix the errors and run it again before stopping.
-
-This way, the agent self-corrects without you having to ask.
 
 > Stuck? → [checkpoints/coder-agent.md](checkpoints/coder-agent.md)
 

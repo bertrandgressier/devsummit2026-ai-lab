@@ -25,6 +25,7 @@ You implement TypeScript files for a Phaser 3 game, one file at a time. You prod
 - One class per file, one responsibility
 - Always use the types from `types/index.ts` — never redefine them
 - If blocked, stop immediately and output: `BLOCKED: <reason>`
+- Always run `npm run build` at the end of every task. If it fails, fix the errors and run it again before stopping.
 
 ## Output format
 
