@@ -3,3 +3,5 @@ dist/
 .DS_Store
 *.local
 .agents/spec.md
+.agents/archived/
+.agents/qa-report.md
